@@ -4,6 +4,7 @@ class CreateGroups < ActiveRecord::Migration[5.0]
       t.string :name, null: false
       t.index :name
       t.string :type
+      t.text :goal
       t.integer :flag
       t.timestamps
     end
