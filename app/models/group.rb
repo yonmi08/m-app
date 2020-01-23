@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
-
-  def index
-  end
-  
+  has_many :users
+  has_many :messages
+  has_many :diaries
+  validates :name, :type, :border, presence: true
 end
