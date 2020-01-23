@@ -1,25 +1,3 @@
--# .side-bar
--#   .side-bar__side-header
--#     .top-box
--#       %p.top-box__user-name
--#         =current_user.name
--#       %ul.top-box__icons
--#         %li.top-box__user-name__edit
--#         =link_to new_group_path do
--#           = icon('fas', 'edit', class: "edit-btn")
--#         %li.top-box__user-name__setting
--#         =link_to edit_user_path(current_user) do
--#           = icon('fas', 'cog', class: "setting-btn")
-
--#   .side-bar__group-list
--#     - current_user.groups.each do |group|
--#       .group-box
--#         = link_to group_messages_path(group) do
--#           %p.group-box__group-name
--#             = group.name
--#           %p.group-box__group-messaqges
--#             = group.show_last_message
-
 .side
   .side__group
     .group__name
