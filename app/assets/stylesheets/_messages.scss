@@ -1,3 +1,159 @@
 * {
   box-sizing: border-box;
+  background-color: #cc8fa5;
+  color: #4d3c42;
+  
 }
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/*side-barに関する記述*/
+
+.side {
+  // background-color: #995a72;
+  background-color: #cc8fa5;
+  width: 350px;
+  height: 100vh;
+}
+.side__group {
+  width: 270px;
+  height: 70px;
+  margin: 30px;
+  padding: 20px;
+  border-bottom: 1px solid #e6b8c8;
+  display: flex;
+  justify-content: space-between;
+
+  .group__name {
+    font-weight: bold;
+    font-size: 20px;
+
+  }
+
+  .rank {
+    padding-right: 15px;
+
+  } 
+} 
+
+
+
+.side__goal {
+  width: 250px;
+  height: 500px;
+  margin: 35px;
+  overflow: scroll;
+
+  .goal__text {
+    width: 230px;
+    height: 100px;
+    margin: 12px;
+    padding: 5px;
+
+  }
+}
+
+
+/*mainに関する記述(header/diary/message/form)*/
+
+.main {
+  background-color: #cc8fa5;
+  width: calc(100% - 350px);
+  border-left: 2px solid #e6b8c8;
+}
+
+/*以下からheaderに関する記述*/
+.main__header {
+  padding-right: 20px;
+  padding-top: 8px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 16px;
+  .header__name {
+    padding-right: 10px;
+  }
+}
+
+/*以下からdiaryに関する記述*/
+
+.main__diary {
+  width: 900px;
+  height: 300px;
+  margin: 30px;
+  margin-left: 90px;
+  overflow: scroll;
+  box-shadow: 2px 2px 2px 2px #e6b8c8;
+
+  .diary__top-box {
+    display: flex;
+    padding: 12px 12px 0 12px;
+
+    .diary__name {
+      padding-right: 30px;
+      font-weight: bold;
+    }
+
+  }
+  .diary__bottom-box {
+    width: 900px;
+    padding: 12px;
+    .message__text {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+/*以下からmessageに関する記述*/
+
+.main__message {
+  // background-color: #e6b8c8;
+  width: 900px;
+  height: 270px;
+  margin: 30px 30px 0 120px;
+  padding: 15px;
+  margin-left: 90px;
+  padding-bottom: 15px;
+  overflow: scroll;
+
+}
+
+/*以下からformに関する記述*/
+
+.main__form {
+  height: 80px;
+  width: 900px;
+  margin-left: 90px;
+  padding: 10px;
+  display: flex;
+
+
+  .input-box {
+    position: relative;
+    height: 60px;
+    width: 750px;
+    margin: 0 auto;
+    margin-right: 5px;
+    right: 10px;
+
+    .input-box__form {
+      height: 60px;
+      width: 750px;
+      
+    }
+  }
+
+  .submit-btn {
+    width: 100px;
+    height: 50px;
+    padding: 0 30px;
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 50px;
+  }
+}
+
