@@ -1,4 +1,10 @@
 @import "./reset";
+@font-face {
+  font-family: 'Shigoto';
+  src: url('ShigotoMemogaki-Regular-1-01.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 @import "./messages";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
