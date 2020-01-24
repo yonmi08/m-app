@@ -10,7 +10,7 @@
   border-bottom: $bw3 1px solid;
   display: flex;
   justify-content: space-between;
-  font-size: 2rem;
+  font-size: 28px;
   background-color: $wh1;
   &__left {
     width: 30%;
@@ -21,7 +21,7 @@
     }
   }
   &__center {
-    width: 40%;
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@
       }
   }
   &__right {
-    width: 30%;
+    width: 20%;
     height: 100%;
     line-height: 100px;
     text-align: right;
@@ -53,27 +53,60 @@
     &__profile {
       height: 50%;
       font-size: 25px;
+      align-items: center;
       &__name {
+        height: 30%;
+        padding: 40px 20px 20px;
       }
       &__email {
-
+        height: 30%;
+        padding: 40px 20px 20px;
       }
       &__goal {
-
+        height: 30%;
+        padding: 40px 20px 20px;
       }
     }
     &__diary {
       height: 50%;
+      width: 100%;
+      background-color: #fff;
+      padding: 10px;
+      &__top {
+        height: 60px;
+        width: 100%;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        &__date {
+          font-size: 15px;
+        }
+        &__point {
+          font-size: 20px;
+        }
+      }
+      &__text {
+        height: calc(100% - 60px);
+        width: 100%;
+        border-top: $bw3 1px solid;
+        padding: 5px;
+      }
     }
   }
-  &__righrt {
+  &__right {
     height: 100%;
     width: 60%;
+    
     &__top {
-
+      width: 100%;
+      height: 60px;
+      background-color: rgb(144, 233, 148);
     }
-    &__text {
-
+    &__bottom {
+      width: 100%;
+      height: calc(100% - 60px);
+      background-color: rgb(233, 217, 144);
     }
   }
 }
