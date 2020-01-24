@@ -6,5 +6,74 @@
 .my-header {
   height: 100px;
   width: 100%;
-  border-bottom: rgb(38, 20, 117);
+  padding: 0 40px;
+  border-bottom: $bw3 1px solid;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+  background-color: $wh1;
+  &__left {
+    width: 30%;
+    height: 100%;
+    line-height: 100px;
+    a {
+      text-decoration: none;
+    }
+  }
+  &__center {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    line-height: 100px;
+    padding-left: 30px;
+      &__name {
+
+      }
+      &__point {
+        padding-left: 20px;
+      }
+  }
+  &__right {
+    width: 30%;
+    height: 100%;
+    line-height: 100px;
+    text-align: right;
+  }
+}
+
+.my-main {
+  background-color: $pk1;
+  height: calc(100% - 100px);
+  display: flex;
+  padding: 0 40px;
+  &__left {
+    height: 100%;
+    width: 40%;
+    &__profile {
+      height: 50%;
+      font-size: 25px;
+      &__name {
+      }
+      &__email {
+
+      }
+      &__goal {
+
+      }
+    }
+    &__diary {
+      height: 50%;
+    }
+  }
+  &__righrt {
+    height: 100%;
+    width: 60%;
+    &__top {
+
+    }
+    &__text {
+
+    }
+  }
 }
