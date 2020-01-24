@@ -1,8 +1,5 @@
 * {
   box-sizing: border-box;
-  background-color: #cc8fa5;
-  color: #4d3c42;
-  
 }
 
 .wrapper {
@@ -14,6 +11,7 @@
 
 .side {
   background-color: #cc8fa5;
+  color: #4d3c42;
   width: 350px;
   height: 100vh;
 }
@@ -60,6 +58,7 @@
 
 .main {
   background-color: #cc8fa5;
+  color: #4d3c42;
   width: calc(100% - 350px);
   border-left: 2px solid #e6b8c8;
 }
@@ -131,6 +130,7 @@
 
 
   .input-box {
+    background-color: #cc8fa5;
     position: relative;
     height: 60px;
     width: 750px;
@@ -139,6 +139,7 @@
     right: 10px;
 
     .input-box__form {
+      background-color: #cc8fa5;
       height: 60px;
       width: 750px;
       
@@ -146,6 +147,7 @@
   }
 
   .submit-btn {
+    background-color: #cc8fa5;
     width: 100px;
     height: 50px;
     padding: 0 30px;
