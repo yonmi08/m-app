@@ -21,21 +21,15 @@
     }
   }
   &__center {
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content: center;
     line-height: 100px;
     padding-left: 30px;
-      &__name {
-
-      }
-      &__point {
-        padding-left: 20px;
-      }
   }
   &__right {
-    width: 20%;
+    width: 30%;
     height: 100%;
     line-height: 100px;
     text-align: right;
@@ -97,16 +91,29 @@
   &__right {
     height: 100%;
     width: 60%;
-    
     &__top {
       width: 100%;
       height: 60px;
+      text-align: right;
       background-color: rgb(144, 233, 148);
+      padding: 10px;
+      display: flex;
+      justify-content: flex-end;
+      a {
+        font-size: 20px;
+        padding: 5px;
+      }
     }
     &__bottom {
       width: 100%;
       height: calc(100% - 60px);
-      background-color: rgb(233, 217, 144);
+      padding: 10px;
+      &__calendar {
+        background-color: $wh1;
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 }
+

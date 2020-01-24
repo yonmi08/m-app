@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_diary
   
   def index
 
@@ -29,7 +29,11 @@ class UsersController < ApplicationController
   def user_params
   end
 
-  def set_user
+  def set_group
+
+  end
+
+  def set_diary
 
   end
 end
