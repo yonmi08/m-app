@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.new-wrapper {
+.edit-wrapper {
   height: 125vh;
   background: #c6ffdd; 
   background: -webkit-linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); 
@@ -11,7 +11,7 @@
 }
 
 /*headerに関する記述*/
-.new-header {
+.edit-header {
   width: 100%;
   height: 50px;
   z-index: 1;
@@ -37,20 +37,20 @@
   height: calc(120vh - 65px);
 }
 
-.new-form {
+.edit-form {
   width: 800px;
   height: 650px;
   margin: 0 auto;
 }
 
-.new-form__message {
+.edit-form__message {
   width: 800px;
   height: 70px;
   font-size: 25px;
   text-align: center;
 }
 
-.new-group-create {
+.edit-group-create {
   width: 800px;
   height: 90px;
   /* margin-top: 40px; */
@@ -58,7 +58,7 @@
   display: flex;
 }
 
-.group__genre {
+.edit-group__genre {
   /* background-color: lightsalmon; */
   width: 150px;
   height: 40px;
@@ -69,7 +69,7 @@
   box-shadow: 2px 2px 2px 2px #e6b8c8;
 }
 
-.group__name {
+.edit-group__name {
   /* background-color: lightslategray; */
   width: 500px;
   height: 40px;
@@ -80,7 +80,7 @@
   box-shadow: 2px 2px 2px 2px #e6b8c8;
 }
  
-.new-goal__input {
+.edit-goal__input {
   background-color: transparent;
   border: 1px solid #e6b8c8;
   outline: 0;
@@ -91,21 +91,21 @@
   overflow: scroll;
 }
 
-.goal__text {
+.edit-goal__text {
   width: 800px;
   height: 130px;
   border: 1px solid #D8D8D8;
   border-radius: 5px;
 }
 
-.new-clear {
+.edit-clear {
   width: 800px;
   height: 150px;
   margin-top: 20px;
 
 }
 
-.new-clear__text__input {
+.edit-clear__text__input {
   background-color: transparent;
   border: 1px solid #e6b8c8;
   outline: 0;
@@ -119,7 +119,7 @@
 
 }
 
-.new-clear__url__input {
+.edit-clear__url__input {
   background-color: transparent;
   border: 1px solid #e6b8c8;
   outline: 0;
@@ -133,13 +133,13 @@
   box-shadow: 2px 2px 2px 2px #e6b8c8;
 }
 
-.new-fail{
+.edit-fail{
   width: 800px;
   height: 170px;
   margin-top: 20px;
 }
 
-.new-fail__text__input {
+.edit-fail__text__input {
   background-color: transparent;
   border: 1px solid #e6b8c8;
   outline: 0;
@@ -152,7 +152,7 @@
   border-radius: 5px;
 }
 
-.new-fail__url__input {
+.edit-fail__url__input {
   background-color: transparent;
   border: 1px solid #e6b8c8;
   outline: 0;
@@ -167,7 +167,7 @@
 
 }
 
-.new-submit-btn  {
+.edit-submit-btn  {
   background-color: #e6b8c8;
   border: 1px solid #e6b8c8;
   outline: 0;
