@@ -53,7 +53,6 @@
 .new-group-create {
   width: 800px;
   height: 90px;
-  /* margin-top: 40px; */
   padding: 20px;
   display: flex;
 }
@@ -67,6 +66,7 @@
   font-size: 25px;
   box-shadow: 2px 2px 2px 2px #e6b8c8;
   background-color: transparent;
+  outline: 0;
 }
 
 .group__name-input {/*長すぎる場合も考えること*/
@@ -78,6 +78,7 @@
   font-size: 22px;
   box-shadow: 2px 2px 2px 2px #e6b8c8;
   background-color: transparent;
+  outline: 0;
 }
  
 .new-goal__input {
