@@ -2,6 +2,7 @@
   height: calc(100% - 100px);
   width: 100%;
   padding: 40px;
+  color: $bw3;
   &__top {
     border: $bw3;
     padding: 0 40px;
@@ -18,18 +19,21 @@
         width: 70px;
         background-color: $wh1;
         outline: 0;
+        color: $bw3;
       }
       #diary_date_2i {
         height: 40px;
         width: 50px;
         background-color: $wh1;
         outline: 0;
+        color: $bw3;
       }
       #diary_date_3i {
         height: 40px;
         width: 50px;
         background-color: $wh1;
         outline: 0;
+        color: $bw3;
       }
     }
     &__point {
@@ -42,6 +46,7 @@
         border: #aaa 1px solid;
         text-align: center;
         outline: 0;
+        color: $bw3;
       }
     }
   }
@@ -63,6 +68,7 @@
         width: 65%;
         outline: 0;
         height: 400px;
+        color: $bw3;
       }
     }
     &__btn {

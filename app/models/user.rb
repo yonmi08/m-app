@@ -3,8 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         has_many :messages
-         has_many :diaries
-        #  belongs_to :group ユーザー登録時、あると支障が出てしまった。とりあえず消しています1/26
-         validates :name, :email, presence: true
+  has_many :group_users
+  has_many :groups, through: :group_users
+  has_many :messages
+  has_many :diaries
+  validates :name, :email, presence: true
 end

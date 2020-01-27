@@ -4,7 +4,7 @@ class CreateDiaries < ActiveRecord::Migration[5.0]
       t.text :text
       t.integer :point
       t.date :date
-      t.references :group, foreign_key: true
+      t.index :date
       t.references :user, foreign_key: true
       t.timestamps
     end

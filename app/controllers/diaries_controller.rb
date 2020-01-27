@@ -1,5 +1,4 @@
 class DiariesController < ApplicationController
-  before_action :set_group, only: [:new, :create, :edit, :update]
   before_action :set_user, only: [:new, :create, :edit, :update, :show]
   before_action :set_diary, only: [:edit, :update, :show]
 
@@ -12,7 +11,7 @@ class DiariesController < ApplicationController
     if @diary.save
       redirect_to root_path
     else
-      render :new, alert: '正しく入力をしてください。'
+      render :new
     end
   end
 
@@ -38,11 +37,7 @@ class DiariesController < ApplicationController
 
   private
   def diary_params
-    params.require(:diary).permit(:text, :point, :date).merge(user_id: current_user.id, group_id:@group.id )
-  end
-
-  def set_group
-    @group = Group.find(current_user.group_id)
+    params.require(:diary).permit(:text, :point, :date).merge(user_id: current_user.id)
   end
 
   def set_user
