@@ -1,26 +1,86 @@
 .diary-body {
-  background-color: $pk1;
   height: calc(100% - 100px);
   width: 100%;
-  padding: 0 40px;
+  padding: 40px;
   &__top {
-    display: flex;
     border: $bw3;
-    text-align: center;
-    height: 40%;
+    padding: 0 40px;
+    align-items: flex-end;
+    height: 15%;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
     &__date {
-      font-size: 15px;
+      padding-top: 10px;
+      #diary_date_1i {
+        height: 40px;
+        width: 70px;
+        background-color: $wh1;
+        outline: 0;
+      }
+      #diary_date_2i {
+        height: 40px;
+        width: 50px;
+        background-color: $wh1;
+        outline: 0;
+      }
+      #diary_date_3i {
+        height: 40px;
+        width: 50px;
+        background-color: $wh1;
+        outline: 0;
+      }
     }
     &__point {
       font-size: 20px;
+      .diary-point {
+        height: 40px;
+        width: 50px;
+        background-color: $wh1;
+        border-radius: 5px;
+        border: #aaa 1px solid;
+        text-align: center;
+        outline: 0;
+      }
     }
   }
   &__bottom {
-    padding: 10px;
+    padding: 10px 30px;
     width: 100%;
-    height: 60%;
-    background-color: $wh1;
+    height: 85%;
     text-align: center;
+    &__text {
+      height: calc(100% - 100px);
+      width: 100%;
+      padding-bottom: 15px;
+      font-size: 20px;
+      .diary-text {
+        background-color: $wh1;
+        border-radius: 5px;
+        border: #aaa 1px solid;
+        padding: 10px;
+        width: 65%;
+        outline: 0;
+        height: 400px;
+      }
+    }
+    &__btn {
+      margin: 0 auto;
+      height: 60px;
+      width: 60px;
+      .diary-btn {
+        outline: 0;
+        background-color: #d8678f;
+        height: 40px;
+        width: 60px;
+        border-radius: 5px;
+        border: #fff 1px solid;
+        color: #fff;
+        &:hover {
+          background-color: #a74e6d;
+        }
+      }
+    }
   }
 }

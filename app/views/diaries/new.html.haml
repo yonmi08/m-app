@@ -1,14 +1,37 @@
 .wrapper-my
   .my-header
     .my-header__left
+      %a= @user.name
     .my-header__center
-      %a= "アカウント編集"
+      %a= "Diary Create"
     .my-header__right
-      %a= "menu"
+      %i= icon('fa', 'bars',  class: "header__icon")
+      .sidebar
+        .sidebar__inner
+          = "menu"
+          .sidebar__inner__ttl.Menu
+            %i= icon('far', 'times-circle', class: "sidebar__inner__ttl__icon")
+        = link_to(root_path) do
+          %p.sidebar__txt.Menu
+            = "マイページ"
+        = link_to(edit_user_path(current_user.id)) do
+          %p.sidebar__txt.Menu
+            = "グループページ"
+        = link_to(destroy_user_session_path, method: :delete) do
+          %p.sidebar__txt.Menu
+            = "ログアウト"
   .diary-body
-    .diary-body__top
-      .diary-body__top__date
-        %a= "2020/01/23"
-      .diary-body__top__point
-        %a= "★★★"
-    .diary-body__bottom
+    = form_for [@user,@diary] do |f|
+      .diary-body__top
+        .diary-body__top__date
+          %a= "日付："
+          = f.date_select :date, {use_month_numbers: true}, class: 'diary-date', size: "1x2"
+        .diary-body__top__point
+          %a= "ポイント："
+          = f.number_field :point, class: 'diary-point', min: 0, max: 5
+      .diary-body__bottom
+        .diary-body__bottom__text
+          = f.text_area :text, class: 'diary-text', placeholder: 'テキストの入力', size: "81x20"
+        .diary-body__bottom__btn
+          = f.submit '送信', class: 'diary-btn'
+.sidebar-bg

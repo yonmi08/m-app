@@ -1,8 +1,9 @@
 .wrapper-my
   .my-header
     .my-header__left
+      %a= @user.name
     .my-header__center
-      %a= "アカウント編集"
+      %a= "Diary Create"
     .my-header__right
       %i= icon('fa', 'bars',  class: "header__icon")
       .sidebar
@@ -16,22 +17,19 @@
         = link_to(edit_user_path(current_user.id)) do
           %p.sidebar__txt.Menu
             = "グループページ"
+        = link_to :back do
+          %p.sidebar__txt.Menu
+            = "戻る"
         = link_to(destroy_user_session_path, method: :delete) do
           %p.sidebar__txt.Menu
             = "ログアウト"
-  .my-body   
-    = form_for [@user] do |f|
-      .my-body__name
-        %a= "Name："
-        = f.text_field :name, class: 'user-name', placeholder: '名前の入力'
-      .my-body__email
-        %a= "Email："
-        = f.email_field :email, class: 'user-email', placeholder: 'Emailの入力'
-      .my-body__box
-        .my-body__box__label
-          %a= "目標設定："
-        .my-body__box__goal
-          = f.text_area :goal, class: 'user-goal', placeholder: '個人目標の入力'
-      .my-body__submit
-        = f.submit '送信', class: 'user-btn'
+  .diary-body
+    .diary-body__top
+      .diary-body__top__date
+        %a= "日付：#{@diary.date}"
+      .diary-body__top__point
+        %a= "ポイント：#{@diary.point}"
+    .diary-body__bottom
+      .diary-body__bottom__text
+        %a= simple_format(@diary.text)
 .sidebar-bg
