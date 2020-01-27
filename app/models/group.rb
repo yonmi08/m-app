@@ -3,4 +3,5 @@ class Group < ApplicationRecord
   has_many :messages
   has_many :diaries
   validates :name, :type, :border, presence: true
+  validates :name, :border, presence: true
 end

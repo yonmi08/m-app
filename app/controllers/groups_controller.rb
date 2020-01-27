@@ -4,11 +4,12 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.users << current_user
+    # @group.users << current_user
   end
 
   def create
-    @group = Group.new(group_params)
+    binding.pry
+    @group = Group.create(group_params)
     # if @group.save # とりあえず、まだ条件分岐をつけずに単純化させています
     #   redirect_to root_path, notice: 'グループを作成しました'
     # else
@@ -31,7 +32,9 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :genre, :border, :flag, user_ides: []) # usersは後からも入るため空で設定
+    params.require(:group).permit(:name, :genre, :border, :flag)
+    # ?? params.require(:group).permit(:name, :genre, :border, :flag).merge(user_id: current_user.id)
+    # ?? user_idはここでとっちゃって大丈夫？userがグループ作成の時、group_idをとる方？
   end
 
 end

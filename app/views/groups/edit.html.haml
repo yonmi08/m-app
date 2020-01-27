@@ -1,29 +1,29 @@
-.new-wrapper
-  .new-header
-    .new-header__nickname
+.edit-wrapper
+  .edit-header
+    .edit-header__nickname
       nickname
-    .new-header__log-out
+    .edit-header__log-out
       log-out
   .body
-    .new-form
-      .new-form__message
-        グループ登録
-      .new-group-create
-        .group__genre
-          %input{type: "text", class: "group__genre-input", placeholder: "ジャンル"}
-        .group__name
-          %input{type: "text", class: "group__name-input", placeholder: "グループ名"}
-      .new-goal
+    .edit-form
+      .edit-form__message
+        グループ参加
+      .edit-group-create
+        .edit-group__genre
+          勉強
+        .edit-group__name
+          グループ名
+      .edit-goal
         %input{type: "text", class: "new-goal__input", placeholder: "目標を入力してください   <例>毎日英単語帳を2ページ進める"}
-      .new-clear
-        .new-clear__text
+      .edit-clear
+        .edit-clear__text
           %input{type: "text", class: "new-clear__text__input", placeholder: "達成したら、したいこと   <例>グループメンバーでご飯を食べに行く"}
-        .new-clera__url
+        .edit-clera__url
           %input{type: "text", class: "new-clear__url__input", placeholder: "達成したらしたいことの具体イメージ。(行きたいお店のURLなど)"}
-      .new-fail
-        .new-fail__text
+      .edit-fail
+        .edit-fail__text
           %input{type: "text", class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"}
-        .new-fail__url
+        .edit-fail__url
           %input{type: "text", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
-      .new-form__send
+      .edit-form__send
         %input{type: "submit", class: "new-submit-btn"}
