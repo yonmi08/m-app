@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+
   def index
   end
 
@@ -8,13 +9,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    binding.pry
     @group = Group.create(group_params)
-    # if @group.save # とりあえず、まだ条件分岐をつけずに単純化させています
-    #   redirect_to root_path, notice: 'グループを作成しました'
-    # else
-    #   render :new
-    # end
+    if @group.save # とりあえず、まだ条件分岐をつけずに単純化させています
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,6 +27,9 @@ class GroupsController < ApplicationController
 
   end
   
+  def show
+  end
+
   def destroy
   end
 
