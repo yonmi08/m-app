@@ -1,0 +1,19 @@
+.message{message: {id: message.id}}
+  .message__name
+    = message.user.name
+  .message__text
+    = message.user.content
+
+
+.message{data: {message: {id: message.id}}}
+  .main__message-sub
+    .main__message-sub-name
+      = message.user.name
+    .main__message-sub-date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .main__message-text
+    - if message.text.present?
+      %p.lower-message__content
+        = message.text
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+

@@ -8,22 +8,26 @@
     .new-form
       .new-form__message
         グループ登録
-      .new-group-create
-        .group__genre
-          %input{type: "text", class: "group__genre-input", placeholder: "ジャンル"}
-        .group__name
-          %input{type: "text", class: "group__name-input", placeholder: "グループ名"}
-      .new-goal
-        %input{type: "text", class: "new-goal__input", placeholder: "目標を入力してください   <例>毎日英単語帳を2ページ進める"}
-      .new-clear
-        .new-clear__text
-          %input{type: "text", class: "new-clear__text__input", placeholder: "達成したら、したいこと   <例>グループメンバーでご飯を食べに行く"}
-        .new-clera__url
-          %input{type: "text", class: "new-clear__url__input", placeholder: "達成したらしたいことの具体イメージ。(行きたいお店のURLなど)"}
-      .new-fail
-        .new-fail__text
-          %input{type: "text", class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"}
-        .new-fail__url
-          %input{type: "text", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
-      .new-form__send
-        %input{type: "submit", class: "new-submit-btn"}
+      %new-group-create
+        = form_for [@group] do |f|
+          .group__genre
+            = f.select :genre, [["a", "a"], ["b", "b"], ["c", "c"]], prompt: "ジャンルを選択してください"
+          .group__name
+            = f.text_field :name, class: "group__name-input", placeholder: "グループ名"
+          .new-goal
+            = f.text_area :name, class: "new-goal__input", placeholder: "目標を入力してください   <例>毎日英単語帳を2ページ進める"
+          .new-form__send
+            = f.submit '送信', class: "new-submit-btn"
+
+-# 達成未達成
+-# .new-clear
+          -# .new-clear__text
+        -#     %input{type: "text", name: "", class: "new-clear__text__input", placeholder: "達成したら、したいこと   <例>グループメンバーでご飯を食べに行く"}
+        -#   .new-clera__url
+        -#     %input{type: "text", name: "", class: "new-clear__url__input", placeholder: "達成したらしたいことの具体イメージ。(行きたいお店のURLなど)"}
+        -# .new-fail
+        -#   .new-fail__text
+        -#     %input{type: "text", name: "", class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"}
+        -#   .new-fail__url
+        -#     %input{type: "text", name: "", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
+
