@@ -1,6 +1,7 @@
 .wrapper-my {
   width: 100%;
   height: 100vh;
+  color: $bw3;
 }
 
 .my-header {
@@ -47,9 +48,10 @@
       box-sizing:border-box;
       display:none;
       text-align: center;
-      background-color: rgba(95, 15, 28, 0.5);
+      background-color: #da98af;
       a {
         text-decoration: none;
+        color: $bw3;
       }
       &__inner {
         display:flex;
@@ -69,6 +71,7 @@
       &__txt {
         border-bottom: $bw3 1px solid;
         font-size: 20px;
+        color: $bw3;
         &:hover {
           background-color: #c0748f;
         }

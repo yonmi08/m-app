@@ -1,7 +1,8 @@
 .wrapper-my
   .my-header
     .my-header__left
-      %a= @group.name
+      - current_user.groups.each do |group|
+        %a= group.name
     .my-header__center
       %a= "マイページ"
     .my-header__right
