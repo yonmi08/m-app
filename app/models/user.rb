@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          has_many :messages
          has_many :diaries
-         belongs_to :group
+        #  belongs_to :group ユーザー登録時、あると支障が出てしまった。とりあえず消しています1/26
          validates :name, :email, presence: true
 end
