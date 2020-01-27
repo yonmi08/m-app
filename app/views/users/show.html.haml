@@ -3,7 +3,7 @@
     .my-header__left
       %a= @group.name
     .my-header__center
-      %a= "マイページ"
+      %a= "ユーザーページ"
     .my-header__right
       %i= icon('fa', 'bars',  class: "header__icon")
       .sidebar
@@ -11,15 +11,12 @@
           = "menu"
           .sidebar__inner__ttl.Menu
             %i= icon('far', 'times-circle', class: "sidebar__inner__ttl__icon")
-        = link_to(edit_user_path(current_user.id)) do
+        = link_to(root_path) do
           %p.sidebar__txt.Menu
-            = "アカウント編集"
+            = "マイページ"
         = link_to(edit_user_path(current_user.id)) do
           %p.sidebar__txt.Menu
             = "グループページ"
-        = link_to(new_user_diary_path(current_user.id)) do
-          %p.sidebar__txt.Menu
-            = "日記作成"
         = link_to(destroy_user_session_path, method: :delete) do
           %p.sidebar__txt.Menu
             = "ログアウト"
@@ -27,11 +24,9 @@
     .my-main__left
       .my-main__left__profile
         .my-main__left__profile__name
-          %a= "Name: #{current_user.name}"
-        .my-main__left__profile__email
-          %a= "Email: #{current_user.email}"
+          %a= "Name: #{@user.name}"
         .my-main__left__profile__goal
-          %a= "個人目標: #{current_user.goal}"
+          %a= "個人目標: #{@user.goal}"
       .my-main__left__diary
         - if @day.blank?
           .my-main__left__diary__top
@@ -40,7 +35,6 @@
             .my-main__left__diary__top__point
               %a= "---"
           .my-main__left__diary__text
-            %a= "入力された日記はまだありません。"
         - else
           .my-main__left__diary__top
             .my-main__left__diary__top__date

@@ -11,7 +11,6 @@
   display: flex;
   justify-content: space-between;
   font-size: 28px;
-  background-color: $wh1;
   &__left {
     width: 30%;
     height: 100%;
@@ -33,38 +32,91 @@
     height: 100%;
     line-height: 100px;
     text-align: right;
+    .header__icon {
+      color:$bw3;
+      font-size:30px;
+    }
+    .sidebar {
+      width:220px;
+      height:100vh;
+      position:fixed;
+      top:0;
+      right:-220px;
+      z-index:4;
+      box-shadow:0 0 10px rgba(0,0,0,0.5);
+      box-sizing:border-box;
+      display:none;
+      text-align: center;
+      background-color: rgba(95, 15, 28, 0.5);
+      a {
+        text-decoration: none;
+      }
+      &__inner {
+        display:flex;
+        justify-content: flex-end;
+        align-items:center;
+        padding: 0 15px;
+        border-bottom: $bw3 1px solid;
+        font-size: 28px;
+        &__ttl {
+          padding-left: 42px;
+          &__icon {
+            font-size:20px;
+            color:$bw3;
+          }
+        }
+      }
+      &__txt {
+        border-bottom: $bw3 1px solid;
+        font-size: 20px;
+        &:hover {
+          background-color: #c0748f;
+        }
+      }
+    }
+    
   }
 }
 
 .my-main {
-  background-color: $pk1;
   height: calc(100% - 100px);
   display: flex;
-  padding: 0 40px;
+  padding: 40px 40px 0;
   &__left {
     height: 100%;
     width: 40%;
     &__profile {
-      height: 50%;
+      height: 40%;
       font-size: 25px;
-      align-items: center;
       &__name {
-        height: 30%;
-        padding: 40px 20px 20px;
+        height: calc(100% / 3);
+        padding: 40px 20px 0px;
+        a {
+          display: block;
+          border-bottom: $bw3 1px solid;
+        }
       }
       &__email {
-        height: 30%;
-        padding: 40px 20px 20px;
+        height: calc(100% / 3);
+        padding: 40px 20px 0px;
+        a {
+          display: block;
+          border-bottom: $bw3 1px solid;
+          
+        }
       }
       &__goal {
-        height: 30%;
-        padding: 40px 20px 20px;
+        height: calc(100% / 3);
+        padding: 40px 20px 0px;
+        a {
+          display: block;
+          border-bottom: $bw3 1px solid;
+        }
       }
     }
     &__diary {
-      height: 50%;
+      height: 60%;
       width: 100%;
-      background-color: #fff;
       padding: 10px;
       &__top {
         height: 60px;
@@ -81,9 +133,9 @@
         }
       }
       &__text {
-        height: calc(100% - 60px);
+        height: calc(100% - 100px);
         width: 100%;
-        border-top: $bw3 1px solid;
+        border: $bw3 1px solid;
         padding: 5px;
       }
     }
@@ -95,7 +147,6 @@
       width: 100%;
       height: 60px;
       text-align: right;
-      background-color: rgb(144, 233, 148);
       padding: 10px;
       display: flex;
       justify-content: flex-end;
@@ -109,11 +160,99 @@
       height: calc(100% - 60px);
       padding: 10px;
       &__calendar {
-        background-color: $wh1;
         height: 100%;
         width: 100%;
       }
     }
   }
 }
+
+.my-body {
+  height: calc(100% - 100px);
+  margin: 0 40px;
+  padding: 80px 60px;
+  text-align: center;
+  font-size: 25px;
+  &__name {
+    height: 100px;
+    width: 100%;
+    .user-name {
+      width: 65%;
+      height: 60px;
+      background-color: $wh1;
+      border-radius: 5px;
+      border: #aaa 1px solid;
+      outline: 0;
+      padding: 0 10px;
+    }
+  }
+  &__email {
+    height: 100px;
+    width: 100%;
+    .user-email {
+      width: 65%;
+      height: 60px;
+      background-color: $wh1;
+      border-radius: 5px;
+      border: #aaa 1px solid;
+      outline: 0;
+      padding: 0 10px;
+    }
+  }
+  &__box {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__label {
+    }
+    &__goal {
+      width: 69%;
+      padding-left: 5px;
+      padding-right: 43px;
+      .user-goal {
+        width: 100%;
+        height: 100px;
+        background-color: $wh1;
+        border-radius: 5px;
+        border: #aaa 1px solid;
+        outline: 0;
+        padding: 0 10px;
+      }
+    }
+  }
+  &__submit {
+    margin: 0 auto;
+    height: 60px;
+    width: 60px;
+    padding-top: 25px;
+    .user-btn {
+      outline: 0;
+      background-color: #d8678f;
+      height: 50px;
+      width: 80px;
+      border-radius: 5px;
+      border: #fff 1px solid;
+      color: #fff;
+      &:hover {
+        background-color: #a74e6d;
+      }
+    }
+  }
+}
+
+.sidebar-bg {
+  width:100vw;
+  height:100vh;
+  opacity:0;
+  position:fixed;
+  top:0;
+  right:0;
+  z-index:3;
+  display:none;
+}
+
+
+
 
