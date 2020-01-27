@@ -41,16 +41,14 @@ legend,
 input,
 textarea,
 p,
-blockquote,
-th,
-td {
+blockquote {
   margin:0;
   padding:0;
 }
-table {
-  border-collapse:collapse;
-  border-spacing:0;
-}
+// table {
+//   border-collapse:collapse;
+//   border-spacing:0;
+// }
 fieldset,
 img {
   border:0;
@@ -65,7 +63,6 @@ code,
 dfn,
 em,
 strong,
-th,
 var {
   font-style:normal;
   font-weight:normal;
@@ -76,8 +73,7 @@ ul {
   list-style:none;
 }
 
-caption,
-th {
+caption {
   text-align:left;
 }
 h1,

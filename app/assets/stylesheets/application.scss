@@ -1,5 +1,7 @@
+/*
+ *= require fullcalendar
+ */
 @import "config/colors";
-@import "./reset";
 @font-face {
   font-family: 'Shigoto';
   src: url('ShigotoMemogaki-Regular-1-01.ttf') format('truetype');
@@ -9,8 +11,9 @@
 @import "./groups";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
+@import "./reset";
 @import "modules/user";
 @import "mypage";
 @import "./groups_new";
 @import "./groups_edit";
-@import "diary-edit"
+@import "diary-edit";
