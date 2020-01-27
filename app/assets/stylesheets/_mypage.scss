@@ -84,10 +84,10 @@
 .my-main {
   height: calc(100% - 100px);
   display: flex;
-  padding: 40px 40px 0;
+  padding: 40px 60px 0;
   &__left {
     height: 100%;
-    width: 40%;
+    width: 50%;
     &__profile {
       height: 40%;
       font-size: 25px;
@@ -129,10 +129,10 @@
         justify-content: space-between;
         align-items: flex-end;
         &__date {
-          font-size: 15px;
+          font-size: 20px;
         }
         &__point {
-          font-size: 20px;
+          font-size: 24px;
         }
       }
       &__text {
@@ -162,9 +162,28 @@
       width: 100%;
       height: calc(100% - 60px);
       padding: 10px;
+      display: flex;
+      justify-content: flex-end;
       &__calendar {
-        height: 100%;
-        width: 100%;
+        .fc-header-toolbar {
+          margin: 0;
+          padding-bottom: 5px;
+        }
+        .fc-left {
+          font-size: 25px;
+          padding-top: 5px;
+        }
+        .fc-head {
+          color: $wh1;
+          background-color: $bw3;
+        }
+        #calendar {
+          width: 645px;
+          height: 400px;
+        }
+        td {
+          border: $bw3 1px solid;
+        }
       }
     }
   }
@@ -208,8 +227,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    &__label {
-    }
     &__goal {
       width: 69%;
       padding-left: 5px;
