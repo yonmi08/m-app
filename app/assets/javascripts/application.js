@@ -12,4 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment
+//= require fullcalendar
 //= require_tree .
+
+$(function () {
+  return $('#calendar').fullCalendar({});
+});
