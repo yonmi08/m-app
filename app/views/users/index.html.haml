@@ -2,7 +2,7 @@
   .my-header
     .my-header__left
       - current_user.groups.each do |group|
-        %a= group.name
+        = link_to group.name, group_messages_path(group.id)
     .my-header__center
       %a= "マイページ"
     .my-header__right
@@ -15,9 +15,18 @@
         = link_to(edit_user_path(current_user.id)) do
           %p.sidebar__txt.Menu
             = "アカウント編集"
-        = link_to(edit_user_path(current_user.id)) do
-          %p.sidebar__txt.Menu
-            = "グループページ"
+        - if current_user.groups.blank?
+          = link_to(new_group_path) do
+            %p.sidebar__txt.Menu
+              = "グループ作成"
+        - else
+          - current_user.groups.each do |group|
+            = link_to(group_messages_path(group.id)) do
+              %p.sidebar__txt.Menu
+                = "グループページ"
+            = link_to(edit_group_path(group.id)) do
+              %p.sidebar__txt.Menu
+                = "グループ編集"
         = link_to(new_user_diary_path(current_user.id)) do
           %p.sidebar__txt.Menu
             = "日記作成"

@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    # @group.users << current_user
+    @group.users << current_user
   end
 
   def create
@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:group).permit(:name, :genre, :border, :flag)
+    params.require(:group).permit(:name, :genre, :border, :flag, user_ids: [])
     # ?? params.require(:group).permit(:name, :genre, :border, :flag).merge(user_id: current_user.id)
     # ?? user_idはここでとっちゃって大丈夫？userがグループ作成の時、group_idをとる方？
   end

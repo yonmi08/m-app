@@ -16,6 +16,7 @@
             = f.text_field :name, class: "group__name-input", placeholder: "グループ名"
           .new-goal
             = f.text_area :name, class: "new-goal__input", placeholder: "目標を入力してください   <例>毎日英単語帳を2ページ進める"
+          %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
           .new-form__send
             = f.submit '送信', class: "new-submit-btn"
 

@@ -1,0 +1,39 @@
+.fc-day {
+  &.fc-sun {
+    background-color: #fff2f2;
+  }
+  &.fc-sat {
+    background-color: #e2eefd;
+  }
+}
+
+.fc-unthemed td {
+  border-color: $bw3;
+}
+
+.fc-header-toolbar {
+  margin: 0;
+}
+.fc-left {
+  font-size: 25px;
+  padding-left: 10px;
+}
+.fc-head {
+  color: $wh1;
+  background-color: $bw3;
+}
+#calendar {
+  width: 665px;
+  height: 400px;
+}
+
+.fc-toolbar {
+  &.fc-header-toolbar {
+    margin: 0;
+  }
+}
+
+.fc-right button {
+  outline: 0;
+  color: $bw3;
+}

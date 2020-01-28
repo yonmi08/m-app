@@ -1,19 +1,20 @@
 /*
  *= require fullcalendar
  */
-@import "config/colors";
+@import "font-awesome-sprockets";
+@import "./font-awesome";
 @font-face {
-  font-family: 'Shigoto';
-  src: url('ShigotoMemogaki-Regular-1-01.ttf') format('truetype');
+  font-family: "Shigoto";
+  src: url('ShigotoMemogaki-Regular-1-01.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-@import "./groups";
-@import "font-awesome-sprockets";
-@import "./font-awesome";
+@import "config/colors";
 @import "./reset";
+@import "./groups";
 @import "modules/user";
 @import "mypage";
 @import "./groups_new";
 @import "./groups_edit";
 @import "diary-edit";
+@import "modules/calendar";
