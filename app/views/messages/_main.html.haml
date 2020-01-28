@@ -6,19 +6,17 @@
     .header__log-out
       = link_to(destroy_user_session_path, method: :delete) do
         = "ログアウト"
- 
   .main__diary
-
-  -# .main__diary
-  -#   .diary__top-box
-  -#     .diary__name
-  -#       = @day.name
-  -#     .diary__rank
-  -#       = @day.point
-  -#   .diary__bottom-box
-  -#     .diary__text
-  -#       = @day.text
-
+    - @group_users.each do |user|
+      - user.diaries.each do |diary|
+        .diary__top-box
+          .diary__name
+            = diary.date
+          .diary__rank
+            = diary.point
+        .diary__bottom-box
+          .diary__text
+            = diary.text
   .main__message
     = render @messages
 
