@@ -25,7 +25,7 @@
       .diary-body__top
         .diary-body__top__date
           %a= "日付："
-          = f.date_select :date, {use_month_numbers: true}, class: 'diary-date', size: "1x2"
+          = f.date_select :date, {use_month_numbers: true}, class: 'diary-date', size: "1x2", default: Date.today
         .diary-body__top__point
           %a= "ポイント："
           = f.number_field :point, class: 'diary-point', min: 0, max: 5

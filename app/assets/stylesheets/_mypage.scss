@@ -12,12 +12,14 @@
   display: flex;
   justify-content: space-between;
   font-size: 28px;
+  background-color: #f5e6eb;
   &__left {
     width: 30%;
     height: 100%;
     line-height: 100px;
     a {
       text-decoration: none;
+      color: $bw3;
     }
   }
   &__center {
@@ -27,6 +29,7 @@
     justify-content: center;
     line-height: 100px;
     padding-left: 30px;
+    font-size: 33px;
   }
   &__right {
     width: 30%;
@@ -48,7 +51,7 @@
       box-sizing:border-box;
       display:none;
       text-align: center;
-      background-color: #da98af;
+      background-color: #f1c7d6;
       a {
         text-decoration: none;
         color: $bw3;
@@ -73,7 +76,7 @@
         font-size: 20px;
         color: $bw3;
         &:hover {
-          background-color: #c0748f;
+          background-color: #e4a3ba;
         }
       }
     }
@@ -87,7 +90,7 @@
   padding: 40px 60px 0;
   &__left {
     height: 100%;
-    width: 50%;
+    width: 45%;
     &__profile {
       height: 40%;
       font-size: 25px;
@@ -139,7 +142,10 @@
         height: calc(100% - 100px);
         width: 100%;
         border: $bw3 1px solid;
-        padding: 5px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fffff6;
+        font-family: 'Shigoto';
       }
     }
   }
@@ -164,27 +170,6 @@
       padding: 10px;
       display: flex;
       justify-content: flex-end;
-      &__calendar {
-        .fc-header-toolbar {
-          margin: 0;
-          padding-bottom: 5px;
-        }
-        .fc-left {
-          font-size: 25px;
-          padding-top: 5px;
-        }
-        .fc-head {
-          color: $wh1;
-          background-color: $bw3;
-        }
-        #calendar {
-          width: 645px;
-          height: 400px;
-        }
-        td {
-          border: $bw3 1px solid;
-        }
-      }
     }
   }
 }
