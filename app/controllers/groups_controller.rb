@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(group_params)
-    if @group.save # とりあえず、まだ条件分岐をつけずに単純化させています
+    if @group.save 
       redirect_to root_path
     else
       render :new

@@ -6,22 +6,21 @@
     .header__log-out
       = link_to(destroy_user_session_path, method: :delete) do
         = "ログアウト"
+ 
   .main__diary
-    .diary__top-box
-      .diary__name
-        name
-      .diary__rank
-        ☆☆☆
-    .diary__bottom-box
-      .diary__text
-        textテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキスト
+
+  -# .main__diary
+  -#   .diary__top-box
+  -#     .diary__name
+  -#       = @day.name
+  -#     .diary__rank
+  -#       = @day.point
+  -#   .diary__bottom-box
+  -#     .diary__text
+  -#       = @day.text
 
   .main__message
     = render @messages
-    -# .message__name
-    -#   name
-    -# .message__text
-    -#   textテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキストtextテキスト
 
     .main__form
       = form_for [@group, @message] do |f|
@@ -29,15 +28,3 @@
           = f.text_field :content, class: "input-box__form", placeholder: "type a message"
           = f.submit 'Send', class: "submit-btn"
 
-
--# .message
--#   .upper-message
--#     .upper-message__user-name
--#       = message.user.name
--#     .upper-message__date
--#       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
--#   .lower-message
--#     - if message.content.present?
--#       %p.lower-message__content
--#         = message.content
--#     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?

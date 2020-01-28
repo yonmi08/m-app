@@ -9,7 +9,7 @@
   color: #4d3c42;
   background: linear-gradient(to bottom, white 0%, palevioletred 100%);
   background: linear-gradient(to right, #c9ffbf, #ffafbd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, #faaca8, #ddd6f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #f4f3f7, #faaca8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -74,6 +74,12 @@
   display: flex;
   justify-content: flex-end;
   font-size: 16px;
+  a {
+    text-decoration: none;
+    color: #4d3c42;
+    font-size: 18px;
+    font-weight: bold;
+  }
   .header__name {
     padding-right: 10px;
   }
@@ -113,7 +119,7 @@
 .main__message {
   // background-color: #e6b8c8;
   width: 900px;
-  height: 270px;
+  height: 300px;
   margin: 30px 30px 0 120px;
   padding: 15px;
   margin-left: 90px;
@@ -122,12 +128,15 @@
 
 }
 
+.message__text {
+  padding-bottom: 10px;
+}
+
 /*以下からformに関する記述*/
 
 .main__form {
   height: 80px;
   width: 900px;
-  margin-left: 90px;
   padding: 10px;
   display: flex;
 
@@ -139,6 +148,7 @@
     margin: 0 auto;
     margin-right: 5px;
     right: 10px;
+    display: flex;
 
     .input-box__form {
       height: 60px;
