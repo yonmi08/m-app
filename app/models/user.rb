@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :diaries
   has_many :events
   validates :name, :email, presence: true
+
+  def user_point
+    
+  end
 end

@@ -25,15 +25,3 @@
               %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
           .new-form__send
             = f.submit '送信', class: "new-submit-btn"
-
--# 達成未達成
-        .new-clear
-          .new-clear__text
-            %input{type: "text", name: "", class: "new-clear__text__input", placeholder: "達成したら、したいこと   <例>グループメンバーでご飯を食べに行く"}
-          .new-clera__url
-            %input{type: "text", name: "", class: "new-clear__url__input", placeholder: "達成したらしたいことの具体イメージ。(行きたいお店のURLなど)"}
-        .new-fail
-          .new-fail__text
-            %input{type: "text", name: "", class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"}
-          .new-fail__url
-            %input{type: "text", name: "", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
