@@ -25,11 +25,21 @@
           %a= "日付："
           = f.date_select :date, {use_month_numbers: true}, class: 'diary-date', size: "1x2", default: Date.today
         .diary-body__top__point
-          %a= "ポイント："
-          = f.number_field :point, class: 'diary-point', min: 0, max: 5
+          .star-rating
+            = f.radio_button "point", 1, class: "star-rating"
+            %i
+            = f.radio_button "point", 2, class: "star-rating"
+            %i
+            = f.radio_button "point", 3, class: "star-rating"
+            %i
+            = f.radio_button "point", 4, class: "star-rating"
+            %i
+            = f.radio_button "point", 5, class: "star-rating"
+            %i
       .diary-body__bottom
         .diary-body__bottom__text
           = f.text_area :text, class: 'diary-text', placeholder: 'テキストの入力', size: "81x20"
         .diary-body__bottom__btn
           = f.submit '送信', class: 'diary-btn'
 .sidebar-bg
+
