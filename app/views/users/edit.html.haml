@@ -2,7 +2,7 @@
   .my-header
     .my-header__left
     .my-header__center
-      %a= "アカウント編集"
+      %a= "Account Edit"
     .my-header__right
       %i= icon('fa', 'bars',  class: "header__icon")
       .sidebar
@@ -13,9 +13,10 @@
         = link_to(root_path) do
           %p.sidebar__txt.Menu
             = "マイページ"
-        = link_to(edit_user_path(current_user.id)) do
-          %p.sidebar__txt.Menu
-            = "グループページ"
+        - current_user.groups.each do |group|
+          = link_to(group_messages_path(group.id)) do
+            %p.sidebar__txt.Menu
+              = "グループページ"
         = link_to(destroy_user_session_path, method: :delete) do
           %p.sidebar__txt.Menu
             = "ログアウト"

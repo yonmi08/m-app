@@ -1,9 +1,10 @@
 .wrapper-my
   .my-header
     .my-header__left
-      %a= @user.name
+      = link_to(user_path(@user.id)) do
+        = @user.name
     .my-header__center
-      %a= "Diary Create"
+      %a= "Diary Page"
     .my-header__right
       %i= icon('fa', 'bars',  class: "header__icon")
       .sidebar
@@ -14,22 +15,35 @@
         = link_to(root_path) do
           %p.sidebar__txt.Menu
             = "マイページ"
-        = link_to(edit_user_path(current_user.id)) do
-          %p.sidebar__txt.Menu
-            = "グループページ"
-        = link_to :back do
-          %p.sidebar__txt.Menu
-            = "戻る"
+        - if current_user.groups.blank?
+          = link_to(new_group_path) do
+            %p.sidebar__txt.Menu
+              = "グループ作成"
+        - else
+          - current_user.groups.each do |group|
+            = link_to(group_messages_path(group.id)) do
+              %p.sidebar__txt.Menu
+                = "グループページ"
+            = link_to(edit_group_path(group.id)) do
+              %p.sidebar__txt.Menu
+                = "グループ編集"
+        - if current_user.id == @user.id
+          = link_to("/users/#{@diary.user_id}/diaries/#{@diary.id}/edit") do
+            %p.sidebar__txt.Menu
+              = "日記編集"
+          = link_to("/users/#{@diary.user_id}/diaries/#{@diary.id}", method: :delete) do
+            %p.sidebar__txt.Menu
+              = "日記削除"
         = link_to(destroy_user_session_path, method: :delete) do
           %p.sidebar__txt.Menu
             = "ログアウト"
-  .diary-body
-    .diary-body__top
-      .diary-body__top__date
-        %a= "日付：#{@diary.date}"
-      .diary-body__top__point
-        %a= "ポイント：#{@diary.point}"
-    .diary-body__bottom
-      .diary-body__bottom__text
+  .diary-show
+    .diary-show__top
+      .diary-show__top__date
+        %a= "日付：#{@diary.date.strftime("%Y年%m月%d日")}"
+      .diary-show__top__point
+        %a= "ポイント：#{@diary.point}pt"
+    .diary-show__bottom
+      .diary-show__bottom__text
         %a= simple_format(@diary.text)
 .sidebar-bg

@@ -1,6 +1,6 @@
 class DiariesController < ApplicationController
-  before_action :set_user, only: [:new, :create, :edit, :update, :show]
-  before_action :set_diary, only: [:edit, :update, :show]
+  before_action :set_diary, only: [:edit, :update, :show, :destroy]
+  before_action :set_user, only: [:edit, :update, :show, :new, :create]
 
   def new
     @diary = Diary.new
@@ -8,7 +8,10 @@ class DiariesController < ApplicationController
 
   def create
     @diary = Diary.new(diary_params)
+    @diary.title = "#{@diary.point}点"
     if @diary.save
+      @diary.url = "/users/#{@diary.user_id}/diaries/#{@diary.id}"
+      @diary.save
       redirect_to root_path
     else
       render :new
@@ -21,14 +24,18 @@ class DiariesController < ApplicationController
 
   def update
     if @diary.update(diary_params)
+      @diary.title = "#{@diary.point}点"
+      @diary.url = "/users/#{@diary.user_id}/diaries/#{@diary.id}"
+      @diary.save
       redirect_to root_path
     else
-      render :edit, alert: '正しく入力をしてください。'
+      render :edit
     end
   end
 
   def destroy
-    
+    @diary.destroy
+    redirect_to root_path
   end
 
   def show
@@ -37,7 +44,7 @@ class DiariesController < ApplicationController
 
   private
   def diary_params
-    params.require(:diary).permit(:text, :point, :date).merge(user_id: current_user.id)
+    params.require(:diary).permit(:text, :point, :date, :title, :url).merge(user_id: current_user.id)
   end
 
   def set_user
