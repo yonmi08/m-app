@@ -22,6 +22,7 @@
               グループとしての目標達成度値を入力してください
             .new-border
               = f.number_field :border, class: "new-border__input", min: 1, max: 5, placeholder: 0
+              %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
           .new-form__send
             = f.submit '送信', class: "new-submit-btn"
 
