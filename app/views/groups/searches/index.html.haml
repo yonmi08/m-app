@@ -1,0 +1,12 @@
+.new-wrapper
+  .new-header
+    .new-header__nickname
+      = link_to(root_path(current_user.id)) do
+        = current_user.name
+    .new-header__log-out
+      = link_to(destroy_user_session_path, method: :delete) do
+        = "ログアウト"
+  .body
+    .new-form
+      .new-form__message
+        グループ検索

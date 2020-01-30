@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :diaries, except: [:index]
   end
   namespace :groups do
-    resources :searches, only: :searche
+    resources :searches, only: :index
   end
   resources :groups, except: [:index, :show] do
     resources :messages, only: [:index, :create]
