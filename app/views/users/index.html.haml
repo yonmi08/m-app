@@ -61,7 +61,7 @@
             %a= simple_format(@day.text)
     .my-main__right
       .my-main__right__top
-        %a= "平均点数：★★★"
+        %a= "平均点数：#{@user.point_average}"
       .my-main__right__bottom
         .my-main__right__bottom__calendar
           #calendar
