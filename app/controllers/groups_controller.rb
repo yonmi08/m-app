@@ -32,15 +32,6 @@ class GroupsController < ApplicationController
 
   def destroy
   end
-  
-  def search 
-    submit_name_ids = Submit.where("submit_name = ?", params[:submit_name]) .pluck(:id)
-    #プルダウンで選ばれたsubmit_nameと同一のsubmi_nameを持つレコードを取得し、そのidを全て列挙する
-  end
-
-  def search
-    
-  end
 
   private
   def group_params

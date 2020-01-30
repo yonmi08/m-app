@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+}
+
+.new-wrapper {
+  height: 125vh;
+  color: gray;
+}
+
+/*headerに関する記述*/
+.new-header {
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px;
+  border-bottom: 2px solid paleturquoise;
+  a {
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+  }
+
+  &__log-out {
+    border: 2px solid darkgray;
+    color: paleturquoise;
+    border-radius: 3px;
+    margin-left: 15px;
+    padding: 13px;
+    text-align: center;
+    line-height: 1px;
+  }
+}
+
+/*bodyに関する記述(header以下)*/
+.body {
+  width: 100%;
+  height: calc(120vh - 65px);
+}
+
+.new-form {
+  width: 800px;
+  height: 650px;
+  margin: 0 auto;
+}
+
+.new-form__message {
+  width: 800px;
+  height: 70px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.group__create {
+  display: flex;
+}
+
+.new-group-create {
+  width: 800px;
+  height: 90px;
+  padding: 20px;
+  display: flex;
+}
+
+#group_genre {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  line-height: 40px;
+  font-size: 20px;
+  box-shadow: 2px 2px 2px 2px paleturquoise;
+  background-color: transparent;
+  outline: 0;
+}
+
+.group__name-input {/*長すぎる場合も考えること*/
+  width: 500px;
+  height: 40px;
+  margin-left: 30px;
+  border-radius: 5px;
+  line-height: 40px;
+  font-size: 22px;
+  box-shadow: 2px 2px 2px 2px paleturquoise;
+  background-color: transparent;
+  outline: 0;
+}
+ 
+.group__create__border {
+  display: flex;
+  padding: 40px 0px 20px 0px;
+
+  .new-border__input {
+    background-color: transparent;
+    border: 1px solid paleturquoise;
+    outline: 0;
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    font-size: 22px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px paleturquoise;
+    background-color: transparent;
+    outline: 0;
+  }
+}
+
+
+.goal__text {
+  width: 800px;
+  height: 130px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+}
+
+.new-clear {
+  width: 800px;
+  height: 150px;
+  margin-top: 20px;
+
+}
+
+.new-clear__text__input {
+  background-color: transparent;
+  border: 1px solid paleturquoise;
+  outline: 0;
+  width: 800px;
+  height: 80px;
+  margin-bottom: 24px;
+  padding: 0 10px 30px;
+  overflow: scroll;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+
+}
+
+.new-clear__url__input {
+  background-color: transparent;
+  border: 1px solid powderblue;
+  outline: 0;
+  width: 800px;
+  height: 50px;
+  padding: 0 10px;
+  overflow: scroll;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 2px powderblue;
+}
+
+.new-fail{
+  width: 800px;
+  height: 170px;
+  margin-top: 20px;
+}
+
+.new-fail__text__input {
+  background-color: transparent;
+  border: 1px solid #e6b8c8;
+  outline: 0;
+  width: 800px;
+  height: 80px;
+  margin: 24px 0;
+  padding: 0 10px 30px;
+  overflow: scroll;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+}
+
+.new-fail__url__input {
+  background-color: transparent;
+  border: 1px solid powderblue;
+  outline: 0;
+  width: 800px;
+  height: 50px;
+  padding: 0 10px;
+  overflow: scroll;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 2px 2px powderblue;
+
+}
+
+.new-submit-btn  {
+  background-color: #e6b8c8;
+  border: 1px solid #e6b8c8;
+  outline: 0;
+  width: 800px;
+  height: 70px;
+  margin-top: 60px;
+  border-radius: 20px;
+  line-height: 70px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resources :diaries, except: [:index]
   end
-  resources :groups do
+  namespace :groups do
+    resources :searches, only: :searche
+  end
+  resources :groups, except: [:index, :show] do
     resources :messages, only: [:index, :create]
   end
 end
