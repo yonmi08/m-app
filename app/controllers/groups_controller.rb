@@ -32,11 +32,18 @@ class GroupsController < ApplicationController
 
   def destroy
   end
+  
+  def search 
+    submit_name_ids = Submit.where("submit_name = ?", params[:submit_name]) .pluck(:id)
+    #プルダウンで選ばれたsubmit_nameと同一のsubmi_nameを持つレコードを取得し、そのidを全て列挙する
+  end
+
+  def search
+    
+  end
 
   private
   def group_params
     params.require(:group).permit(:name, :genre, :border, :flag, user_ids: [])
-    # ?? params.require(:group).permit(:name, :genre, :border, :flag).merge(user_id: current_user.id)
-    # ?? user_idはここでとっちゃって大丈夫？userがグループ作成の時、group_idをとる方？
   end
 end

@@ -14,7 +14,7 @@
         = form_for [@group] do |f|
           .group__create
             .group__genre
-              = f.select :genre, [["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]], placeholder: "ジャンル"
+              = f.select :genre, [["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]], prompt: "ジャンル"
             .group__name
               = f.text_field :name, class: "group__name-input", placeholder: "グループ名"
           .group__create__border
@@ -35,20 +35,3 @@
               %input{type: "text", name: "", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
           .new-form__send
             = f.submit '送信', class: "new-submit-btn"
-
-
- <%= form_tag(comics_search_path, method: "get") do %>
-    <%= text_field_tag :keyword , params[:keyword],placeholder: "作品名・サークル名など"%>
- <% end %>
-#キーワード検索するタブを作る
-
-<%= form_tag(comics_search_path, method: "get") do %>
- <%= select_tag "submit_name", options_for_select([["国語", "国語"],["算数","算数"],["理科","理科"],["社会","社会"]]) %>
-<% end %>
-#プルダウン検索バー生成
-
-<%= @submits_searched %>
-#検索結果出力場所
-
-=form_for
-= f.select_tag "submit_name", options_for_select([["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]], placeholder: "ジャンル")

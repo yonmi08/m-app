@@ -20,9 +20,9 @@
   .main__message
     = render @messages
 
-    .main__form
-      = form_for [@group, @message] do |f|
-        .input-box
-          = f.text_field :content, class: "input-box__form", placeholder: "type a message"
-          = f.submit 'Send', class: "submit-btn"
+  .main__form
+    = form_for [@group, @message] do |f|
+      .input-box
+        = f.text_field :content, class: "input-box__form", placeholder: "type a message"
+        = f.submit 'Send', class: "submit-btn"
 
