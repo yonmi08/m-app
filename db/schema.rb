@@ -26,14 +26,14 @@ ActiveRecord::Schema.define(version: 20200127123503) do
   end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title"
-    t.datetime "start"
-    t.datetime "end"
-    t.string   "color"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+    t.text     "fail_text",  limit: 65535
+    t.string   "fail_url"
+    t.text     "pass_text",  limit: 65535
+    t.string   "pass_url"
+    t.integer  "group_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["group_id"], name: "index_events_on_group_id", using: :btree
   end
 
   create_table "group_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 20200127123503) do
   end
 
   add_foreign_key "diaries", "users"
-  add_foreign_key "events", "users"
+  add_foreign_key "events", "groups"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "messages", "groups"
