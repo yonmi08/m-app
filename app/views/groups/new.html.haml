@@ -21,7 +21,7 @@
             .new_border_text
               グループとしての目標達成度値を入力してください
             .new-border
-              %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
+              = f.number_field :border, class: "new-border__input", min: 1, max: 5, placeholder: 0
           .new-form__send
             = f.submit '送信', class: "new-submit-btn"
 
@@ -36,5 +36,3 @@
             %input{type: "text", name: "", class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"}
           .new-fail__url
             %input{type: "text", name: "", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
-
-
