@@ -1,7 +1,8 @@
 .wrapper-my
   .my-header
     .my-header__left
-      %a= @user.name
+      = link_to(user_path(@user.id)) do
+        = @user.name
     .my-header__center
       %a= "Diary Create"
     .my-header__right
@@ -14,9 +15,6 @@
         = link_to(root_path) do
           %p.sidebar__txt.Menu
             = "マイページ"
-        = link_to(edit_user_path(current_user.id)) do
-          %p.sidebar__txt.Menu
-            = "グループページ"
         = link_to(destroy_user_session_path, method: :delete) do
           %p.sidebar__txt.Menu
             = "ログアウト"

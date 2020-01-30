@@ -1,6 +1,8 @@
 .wrapper-my
   .my-header
     .my-header__left
+      = link_to(user_path(@user.id)) do
+        = @user.name
     .my-header__center
       %a= "Diary Edit"
     .my-header__right
@@ -13,9 +15,6 @@
         = link_to(root_path) do
           %p.sidebar__txt.Menu
             = "マイページ"
-        = link_to(edit_user_path(current_user.id)) do
-          %p.sidebar__txt.Menu
-            = "グループページ"
         = link_to(destroy_user_session_path, method: :delete) do
           %p.sidebar__txt.Menu
             = "ログアウト"
@@ -27,7 +26,7 @@
           = f.date_select :date, {use_month_numbers: true}, class: 'diary-date', size: "1x2"
         .diary-body__top__point
           %a= "ポイント："
-          = f.number_field :point, class: 'diary-point'
+          = f.number_field :point, class: 'diary-point', min: 0, max: 5
       .diary-body__bottom
         .diary-body__bottom__text
           = f.text_area :text, class: 'diary-text', placeholder: 'テキストの入力', size: "81x20"

@@ -90,3 +90,37 @@
     }
   }
 }
+
+.diary-show {
+  height: calc(100% - 100px);
+  width: 100%;
+  padding: 60px 50px 40px;
+  color: $bw3;
+  &__top {
+    display: flex;
+    justify-content: space-around;
+    &__date {
+      font-size: 20px;
+      padding-left: 70px;
+    }
+    &__point {
+      font-size: 20px;
+      padding-right: 70px;
+    }
+  }
+  &__bottom {
+    margin: 0 auto;
+    width: 60%;
+    height: 85%;
+    padding: 7px;
+    &__text {
+      height: calc(100% - 100px);
+      width: 100%;
+      padding: 7px 12px;
+      font-size: 20px;
+      background-color: #fffff6;
+      border-radius: 5px;
+      border: $bw3 1px solid;
+    }
+  }
+}

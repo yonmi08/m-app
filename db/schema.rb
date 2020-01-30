@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 20200127123503) do
     t.text     "text",       limit: 65535
     t.integer  "point"
     t.date     "date"
+    t.string   "title"
+    t.string   "url"
     t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

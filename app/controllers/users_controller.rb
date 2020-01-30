@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :destroy, :update, :show]
-
+  before_action :set_user
+  before_action :set_diary, only: [:index, :show]
+  before_action :action_json, only: [:index, :show]
   
   def index
-    @diaries = Diary.where(user_id: current_user.id).date_sort
-    @day = @diaries.first
+
   end
 
   def show
-    @diaries = Diary.where(user_id: @user.id).date_sort
-    @day = @diaries.first
+
   end
 
   def edit
@@ -34,6 +33,23 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    if params[:id].nil?
+      @user = current_user
+    else
+      @user = User.find(params[:id])
+    end
+  end
+
+  def set_diary
+    @diaries = Diary.where(user_id: @user.id).date_sort
+    @day = @diaries.first
+  end
+
+  def action_json
+    respond_to do |format|
+      format.html #show.html.haml
+      format.xml { render :xml => @diaries }
+      format.json { render :json => @diaries}
+    end
   end
 end

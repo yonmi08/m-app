@@ -5,6 +5,8 @@ class CreateDiaries < ActiveRecord::Migration[5.0]
       t.integer :point
       t.date :date
       t.index :date
+      t.string :title
+      t.string :url
       t.references :user, foreign_key: true
       t.timestamps
     end

@@ -1,21 +1,22 @@
 $(document).ready(function() {
   $('#calendar').fullCalendar({
-    navLinks: true,
-    selectable: true,
-    selectHelper: true,
-    select: function(start, end) {
-      var title = prompt('イベントを追加');
-      var eventData;
-      if (title) {
-        eventData = {
-          title: title,
-          start: start,
-          end: end
-        };
-        $('#calendar').fullCalendar('renderEvent', eventData, true);
-      }
-      $('#calendar').fullCalendar('unselect');
-    },
+    // navLinks: true,
+    // selectable: true,
+    // selectHelper: true,
+    eventResizableFromStart: true,
+    // select: function(start, end) {
+    //   var title = prompt('イベントを追加');
+    //   var eventData;
+    //   if (title) {
+    //     eventData = {
+    //       title: title,
+    //       start: start,
+    //       end: end
+    //     };
+    //     $('#calendar').fullCalendar('renderEvent', eventData, true);
+    //   }
+    //   $('#calendar').fullCalendar('unselect');
+    // },
     titleFormat: 'YYYY年 M月',
     //曜日を日本語表示
     dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
@@ -37,11 +38,9 @@ $(document).ready(function() {
         day: '日'
     },
     timeFormat: "HH:mm",
-    //イベントの色を変える
-    eventColor: '#63ceef',
-    //イベントの文字色を変える
-    eventTextColor: '#000000',
-    events: '/events.json',
-    editable: true
+    eventColor: '#fcc',
+    eventTextColor: '#4d3c42',
+    events: location.pathname,
+    // editable: true
   });
 });

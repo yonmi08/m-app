@@ -4,7 +4,7 @@
       - current_user.groups.each do |group|
         = link_to group.name, group_messages_path(group.id)
     .my-header__center
-      %a= "マイページ"
+      %a= "My Page"
     .my-header__right
       %i= icon('fa', 'bars',  class: "header__icon")
       .sidebar
@@ -37,11 +37,11 @@
     .my-main__left
       .my-main__left__profile
         .my-main__left__profile__name
-          %a= "Name: #{current_user.name}"
+          %a= "Name: #{@user.name}"
         .my-main__left__profile__email
-          %a= "Email: #{current_user.email}"
+          %a= "Email: #{@user.email}"
         .my-main__left__profile__goal
-          %a= "個人目標: #{current_user.goal}"
+          %a= "個人目標: #{@user.goal}"
       .my-main__left__diary
         - if @day.blank?
           .my-main__left__diary__top
