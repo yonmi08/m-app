@@ -26,15 +26,17 @@
             .new-border
               = f.number_field :border, class: "new-border__input", min: 1, max: 5, placeholder: 0
               %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
-          .new-clear
-            .new-clear__text
-              %input{type: "text", name: "", class: "new-clear__text__input", placeholder: "達成したら、したいこと   <例>グループメンバーでご飯を食べに行く"}
-            .new-clera__url
-              %input{type: "text", name: "", class: "new-clear__url__input", placeholder: "達成したらしたいことの具体イメージ。(行きたいお店のURLなど)"}
-          .new-fail
-            .new-fail__text
-              %input{type: "text", name: "", class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"}
-            .new-fail__url
-              %input{type: "text", name: "", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
+          events:
+          = f.fields_for :events do |event_form|
+            .new-clear
+              .new-clear__text
+                = event_form.area_field :pass_text, class: "new-clear__text__input", placeholder: "達成したら、したいこと   <例>グループメンバーでご飯を食べに行く"
+              .new-clear__url
+                = event_form.text_field :pass_url, class: "new-clear__url__input", placeholder: "達成したらしたいことの具体イメージ。(行きたいお店のURLなど)"
+            .new-fail
+              .new-fail__text
+                = event_form.area_field :fail_text, class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"
+              .new-fail__url
+                = event_form.text_field :fail_url, class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"
           .new-form__send
             = f.submit '送信', class: "new-submit-btn"
