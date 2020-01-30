@@ -93,7 +93,7 @@
   margin: 30px;
   margin-left: 90px;
   overflow: scroll;
-  box-shadow: 2px 2px 2px 2px powderblue;
+  box-shadow: 2px 2px 2px 2px rosybrown;
 
   .diary__top-box {
     display: flex;
@@ -103,7 +103,6 @@
       padding-right: 30px;
       font-weight: bold;
     }
-
   }
   .diary__bottom-box {
     width: 900px;
@@ -138,6 +137,7 @@
   height: 80px;
   width: 900px;
   padding: 10px;
+  margin-left: 120px;
   display: flex;
 
 
@@ -168,4 +168,3 @@
     background-color: powderblue;
   }
 }
-
