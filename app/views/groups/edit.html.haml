@@ -18,6 +18,7 @@
           .group__create
             .group__genre
               = f.select :genre, [["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]], prompt: "ジャンル"
+            .group__name
               = f.text_field :name, class: "group__name-input", placeholder: "グループ名"
           .group__create__border
             .new_border_text
