@@ -11,7 +11,10 @@
       .new-form__message
         グループ登録
       %new-group-create
-        = form_for [@group] do |f|
+        = form_with model: @group do |f|
+          %ul.error
+            - @group.errors.full_messages.each do |message|
+              %li= message
           .group__create
             .group__genre
               = f.select :genre, [["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]], prompt: "ジャンル"
@@ -24,14 +27,16 @@
               = f.number_field :border, class: "new-border__input", min: 1, max: 5, placeholder: 0
               %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
           .new-clear
-            .new-clear__text
-              %input{type: "text", name: "", class: "new-clear__text__input", placeholder: "達成したら、したいこと   <例>グループメンバーでご飯を食べに行く"}
-            .new-clera__url
-              %input{type: "text", name: "", class: "new-clear__url__input", placeholder: "達成したらしたいことの具体イメージ。(行きたいお店のURLなど)"}
-          .new-fail
-            .new-fail__text
-              %input{type: "text", name: "", class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"}
-            .new-fail__url
-              %input{type: "text", name: "", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
-          .new-form__send
-            = f.submit '送信', class: "new-submit-btn"
+            events:
+              .new-clear__text
+                = f.fields_for :events do |event_form|
+                %input{type: "text", name: "", class: "new-clear__text__input", placeholder: "達成したら、したいこと   <例>グループメンバーでご飯を食べに行く"}
+              .new-clera__url
+                %input{type: "text", name: "", class: "new-clear__url__input", placeholder: "達成したらしたいことの具体イメージ。(行きたいお店のURLなど)"}
+            .new-fail
+              .new-fail__text
+                %input{type: "text", name: "", class: "new-fail__text__input", placeholder: "未達成の場合に、やること   <例>グループメンバーで反省会を開く"}
+              .new-fail__url
+                %input{type: "text", name: "", class: "new-fail__url__input", placeholder: "未達成の場合にやることの、具体イメージ。(行くお店のURLなど)"}
+            .new-form__send
+              = f.submit '送信', class: "new-submit-btn"

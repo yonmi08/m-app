@@ -19,6 +19,9 @@
           %p.sidebar__txt.Menu
             = "ログアウト"
   .diary-body
+    %ul.error
+      - @diary.errors.full_messages.each do |message|
+        %li= message
     = form_for [@user,@diary] do |f|
       .diary-body__top
         .diary-body__top__date

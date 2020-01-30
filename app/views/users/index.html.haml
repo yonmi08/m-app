@@ -27,6 +27,9 @@
             = link_to(edit_group_path(group.id)) do
               %p.sidebar__txt.Menu
                 = "グループ編集"
+            = link_to(user_path(@user.id), method: :delete) do
+              %p.sidebar__txt.Menu
+                = "グループ脱退"
         = link_to(new_user_diary_path(current_user.id)) do
           %p.sidebar__txt.Menu
             = "日記作成"

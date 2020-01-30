@@ -24,13 +24,15 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    
+    @user.groups.delete_all
+    redirect_to root_path
   end
 
   private
   def user_params
     params.require(:user).permit(:name, :email, :goal)
   end
+
 
   def set_user
     if params[:id].nil?

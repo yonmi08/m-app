@@ -206,3 +206,14 @@
     }
   }
 }
+
+.error {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  li {
+    color: #cc3636;
+    font-size: 18px;
+    padding: 5px 10px;
+  }
+}
