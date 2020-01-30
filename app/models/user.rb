@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :events
   validates :name, :email, presence: true
 
-  def user_point
-    
+  def point_average
+    self.diaries.average(:point).round(1)
   end
 end
