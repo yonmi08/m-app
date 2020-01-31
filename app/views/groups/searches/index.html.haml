@@ -10,12 +10,13 @@
     .new-form
       .new-form__message
         グループ検索
-        .group__create
+      .group__create
+        = form_tag(groups_searches_path, method: :get, class: "search-form") do
           .group__genre
-            = form_tag(groups_searches_path, method: "get") do |f|
-              = select_tag "genre", options_for_select([["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]]), placeholder: "ジャンル"
-            .group__name
-              = text_field_tag :name , params[:name],placeholder: "作品名・サークル名など"
-              = submit_tag("Search")
-              - @groups.each do |group|
-                = group.name
+            = text_field_tag :keyword, params[:keyword], placeholder: "グループ名で検索する", class: "search-input"
+          .group__name
+            = select_tag :genre, options_for_select([["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]]), {include_blank: 'ジャンル'}
+          .group__submit
+            = submit_tag "検索", class: "search-btn"
+          - @groups.each do |group|
+            = group.name

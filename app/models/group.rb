@@ -7,12 +7,10 @@ class Group < ApplicationRecord
 
   validates :name, :genre, :border, presence: true
 
-  def self.search(search)
-    return Group.all unless search
-    # Group.where("genre = ?", params[:genre]).pluck(:name)
-    genre_ids = Group.where("genre = ?", params[:genre]).pluck(:id)
-    name_ids = Group.where("name LIKE (?)", "#{params[:name]}").pluck(:id)
-    @groups = Group.where("id IN (?) or id IN(?)", genre_ids, name_ids)
+  def self.search(keyword, genre)
+    return Group.all unless keyword && genre
+    id = Group.where("genre = ?", genre).pluck(:id)
+    @group = Group.where("name LIKE(?)", "%#{keyword}%").where(id: id)
   end
 
   def point_average
