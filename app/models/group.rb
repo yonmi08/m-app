@@ -9,7 +9,7 @@ class Group < ApplicationRecord
 
   def self.search(keyword, genre)
     return Group.all unless keyword && genre
-    @group = Group.where("genre = ?", genre).where("name LIKE(?)", "%#{keyword}%")
+    @group = Group.where("genre = ? and name LIKE(?)", genre, "%#{keyword}%")
   end
 
   def point_average
