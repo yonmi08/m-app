@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
-    @group.build_event
+    # @group.build_event
   end
 
   def create
@@ -26,6 +26,10 @@ class GroupsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def search
+    
   end
 
   def destroy
