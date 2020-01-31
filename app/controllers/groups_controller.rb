@@ -3,10 +3,11 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
+    @group.build_event
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = Group.create(group_params)
     if @group.save 
       redirect_to root_path
     else
@@ -26,15 +27,14 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
-  
-  def show
-  end
 
   def destroy
   end
 
   private
   def group_params
-    params.require(:group).permit(:name, :genre, :border, :flag, user_ids: [])
+    params.require(:group).permit(:name, :genre, :border, :flag, user_ids: [],
+      event_attributes: [:id, :pass_text, :pass_url, :fail_text, :fail_url, :group_id]
+    )
   end
 end
