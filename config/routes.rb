@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   end
   resources :groups, except: [:index, :show] do
     resources :messages, only: [:index, :create]
+    resources :events, only: [:index]
   end
 end
