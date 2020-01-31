@@ -10,3 +10,27 @@
     .new-form
       .new-form__message
         グループ検索
+        .group__create
+          .group__genre
+            .genre
+          .group__name
+            .group__name-input
+        .group__create__border
+          .new_border_text
+            グループとしての目標達成度値を入力してください
+          .new-border
+            .new-border__input
+        .new-form__send
+
+
+ <%= form_tag(comics_search_path, method: "get") do %>
+    <%= text_field_tag :keyword , params[:keyword],placeholder: "作品名・サークル名など"%>
+ <% end %>
+#キーワード検索するタブを作る
+
+<%= form_tag(comics_search_path, method: "get") do %>
+ <%= select_tag "submit_name", options_for_select([["国語", "国語"],["算数","算数"],["理科","理科"],["社会","社会"]]) %>
+<% end %>
+#プルダウン検索バー生成
+
+form_
