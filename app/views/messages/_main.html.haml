@@ -1,5 +1,9 @@
 .main
   .main__header
+    .header__join
+      - if current_user.groups.blank? and @group.users.size < 5
+        = link_to(join_group_path(@group.id), method: :post) do
+          = "グループ加入"
     .header__name
       = link_to(root_path(current_user.id)) do
         = current_user.name

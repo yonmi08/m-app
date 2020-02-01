@@ -33,14 +33,14 @@
         - if @day.blank?
           .my-main__left__diary__top
             .my-main__left__diary__top__date
-              %a= Date.today
+              %a= Date.today.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
               %a= "---"
           .my-main__left__diary__text
         - else
           .my-main__left__diary__top
             .my-main__left__diary__top__date
-              %a= @day.date
+              %a= @day.date.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
               %a= @day.point
           .my-main__left__diary__text

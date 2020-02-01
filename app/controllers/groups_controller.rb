@@ -1,9 +1,8 @@
 class GroupsController < ApplicationController
-
+  before_action :set_group, only: [:edit, :update, :join]
   def new
     @group = Group.new
     @group.users << current_user
-    # @group.build_event
   end
 
   def create
@@ -16,11 +15,9 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
   end
 
   def update
-    @group = Group.find(params[:id])
     if @group.update(group_params)
       redirect_to root_path
     else
@@ -28,8 +25,10 @@ class GroupsController < ApplicationController
     end
   end
 
-  def search
-    
+  def join
+    @group.users << current_user
+    @group.save
+    redirect_to root_path
   end
 
   def destroy
@@ -40,5 +39,9 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, :genre, :border, :flag, user_ids: [],
       event_attributes: [:id, :pass_text, :pass_url, :fail_text, :fail_url, :group_id]
     )
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
   end
 end

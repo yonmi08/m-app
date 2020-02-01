@@ -13,6 +13,6 @@ class Group < ApplicationRecord
   end
 
   def point_average
-    self.diaries.average(:point).round(1)
+    # self.diaries.average(:point).round(1)
   end
 end

@@ -1,22 +1,41 @@
-.new-wrapper
-  .new-header
-    .new-header__nickname
-      = link_to(root_path(current_user.id)) do
-        = current_user.name
-    .new-header__log-out
-      = link_to(destroy_user_session_path, method: :delete) do
-        = "ログアウト"
+.se-wrapper
+  .se-header
+    .se-header__title
+      = "グループ検索"
+    .se-header__right
+      .se-header__right__name
+        = link_to(root_path(current_user.id)) do
+          = current_user.name
+      .se-header__right__log-out
+        = link_to(destroy_user_session_path, method: :delete) do
+          = "ログアウト"
   .body
-    .new-form
-      .new-form__message
-        グループ検索
-      .group__create
-        = form_tag(groups_searches_path, method: :get, class: "search-form") do
-          .group__genre
-            = text_field_tag :keyword, params[:keyword], placeholder: "グループ名で検索する", class: "search-input"
-          .group__name
-            = select_tag :genre, options_for_select([["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]]), {include_blank: 'ジャンル'}
-          .group__submit
-            = submit_tag "検索", class: "search-btn"
-          - @groups.each do |group|
-            = group.name
+    .search-form
+      = form_tag(groups_searches_path, method: :get, class: "search-form") do
+        .search-form__genre
+          = select_tag :genre, options_for_select(genres), include_blank: 'ジャンル'
+        .search-form__keyword
+          = text_field_tag :keyword, params[:keyword], placeholder: "グループ名で検索する"
+        .search-form__submit
+          = submit_tag "検索", class: "search-btn"
+    .group-box
+      %table.group-box__frame
+        %tr.title-bar
+          %th.term
+            = "評価期間"
+          %th.name
+            = "グループ名"
+          %th.value
+            = "メンバー"
+            %a= "人数"
+        - @groups.each do |group|
+          %tr.group-list
+            %td.term
+              = link_to(group_messages_path(group.id)) do
+                = "#{group.created_at.strftime("%Y/%m/%d")} 〜 #{(group.created_at + 7.days).strftime("%Y/%m/%d")}"
+            %td.name
+              = link_to(group_messages_path(group.id)) do
+                = group.name
+            %td.value
+              = link_to(group_messages_path(group.id)) do
+                = "#{group.users.size}人"

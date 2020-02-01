@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :action_json, only: [:index, :show]
   
   def index
-
   end
 
   def show
