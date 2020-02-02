@@ -2,15 +2,14 @@
   box-sizing: border-box;
 }
 
-
 .wrapper {
   display: flex;
   height: 100vh;
+  width: 100%;
   color: #4d3c42;
   background: linear-gradient(to bottom, white 0%, palevioletred 100%);
   background: linear-gradient(to right, #c9ffbf, #ffafbd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background: linear-gradient(to right, #f4f3f7, #faaca8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 /*side-barに関する記述*/
@@ -63,6 +62,7 @@
 
 .main {
   width: calc(100% - 350px);
+  height: 100%;
   border-left: 2px solid #e6b8c8;
 }
 
@@ -115,56 +115,104 @@
 
 /*以下からmessageに関する記述*/
 
-.main__message {
-  // background-color: #e6b8c8;
-  width: 900px;
-  height: 300px;
-  margin: 30px 30px 0 120px;
-  padding: 15px;
-  margin-left: 90px;
-  padding-bottom: 15px;
+
+.main-body {
+  height: calc(100% - 40px);
+  width: 100%;
+  padding: 20px 30px;
+}
+
+.main__close {
+  width: 100%;
+  height: 400px;
   overflow: scroll;
-
-}
-
-.message__text {
-  padding-bottom: 10px;
-}
-
-/*以下からformに関する記述*/
-
-.main__form {
-  height: 80px;
-  width: 900px;
-  padding: 10px;
-  margin-left: 120px;
-  display: flex;
-
-
-  .input-box {
-    position: relative;
-    height: 60px;
-    width: 750px;
-    margin: 0 auto;
-    margin-right: 5px;
-    right: 10px;
-    display: flex;
-
-    .input-box__form {
-      height: 60px;
-      width: 750px;
-      
+  box-shadow: 2px 2px 2px 2px rosybrown;
+  padding: 10px 20px;
+  &__text {
+    width: 100%;
+    height: 20%;
+    font-size: 24px;
+  }
+  &__ogp {
+    width: 100%;
+    height: 90%;
+    &__title {
+      width: 100%;
+      font-size: 22px;
+    }
+    &__bottom {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      &__img {
+        width: 65%;
+        height: 100%;
+        padding-bottom: 10px;
+      }
+      &__content {
+        height: 100%;
+        width: 35%;
+        color: $bw3;
+        padding: 5px;
+      }
+    }
+    a {
+      text-decoration: none;
+      font-size: 17px;
     }
   }
+}
 
-  .submit-btn {
-    width: 100px;
-    height: 50px;
-    padding: 0 30px;
-    margin: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    line-height: 50px;
-    background-color: powderblue;
+.main-bottom {
+  height: calc(100% - 400px);
+  width: 100%;
+  .main__message {
+    // background-color: #e6b8c8;
+    width: 100%;
+    height: calc(100% - 80px);
+    // margin: 30px 30px 0 120px;
+    padding: 15px;
+    // margin-left: 90px;
+    padding-bottom: 15px;
+    overflow: scroll;
+    .message__text {
+      padding-bottom: 10px;
+      width: 100%;
+    }
+  }
+  /*以下からformに関する記述*/
+  .main__form {
+    height: 80px;
+    width: 100%;
+    padding: 10px;
+    // margin-left: 120px;
+    display: flex;
+    .new_message {
+      width: 100%;
+      .input-box {
+        position: relative;
+        height: 60px;
+        width: 100%;
+        margin: 0 auto;
+        margin-right: 5px;
+        right: 10px;
+        display: flex;
+        .input-box__form {
+          height: 60px;
+          width: 100%;
+        }
+      }
+      .submit-btn {
+        width: 100px;
+        height: 50px;
+        padding: 0 30px;
+        margin: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        line-height: 50px;
+        background-color: powderblue;
+      }
+    }
   }
 }

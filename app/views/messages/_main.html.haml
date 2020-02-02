@@ -10,22 +10,35 @@
     .header__log-out
       = link_to(destroy_user_session_path, method: :delete) do
         = "ログアウト"
-  .main__diary
-    - @group_users.each do |user|
-      - user.diaries.each do |diary|
-        .diary__top-box
-          .diary__name
-            = diary.date
-          .diary__rank
-            = diary.point
-        .diary__bottom-box
-          .diary__text
-            = diary.text
-  .main__message
-    = render @messages
-  .main__form
-    = form_for [@group, @message] do |f|
-      .input-box
-        = f.text_field :content, class: "input-box__form", placeholder: "type a message"
-        = f.submit 'Send', class: "submit-btn"
+  .main-body
+    -# .main__close
+    -#   .main__close__text
+    -#     = simple_format @group.event.fail_text
+    -#   .main__close__ogp
+    -#     .main__close__ogp__title
+    -#       = tumbnaill_title(@group.event.fail_url).truncate(37, omission: '…')
+    -#       = link_to(@group.event.fail_url) do
+    -#         .main__close__ogp__bottom
+    -#           = image_tag tumbnaill_image(@group.event.fail_url), class: "main__close__ogp__bottom__img"
+    -#           .main__close__ogp__bottom__content
+    -#             = tumbnaill_content(@group.event.fail_url).truncate(40, omission: '…')
+    .main__diary
+      - @group_users.each do |user|
+        - user.diaries.each do |diary|
+          .diary__top-box
+            .diary__name
+              = diary.date
+            .diary__rank
+              = diary.point
+          .diary__bottom-box
+            .diary__text
+              = diary.text
+    .main-bottom
+      .main__message
+        = render @messages
+      .main__form
+        = form_for [@group, @message] do |f|
+          .input-box
+            = f.text_field :content, class: "input-box__form", placeholder: "type a message"
+            = f.submit 'Send', class: "submit-btn"
 
