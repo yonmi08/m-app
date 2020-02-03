@@ -28,6 +28,7 @@
   border-bottom: 1px solid #e6b8c8;
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 
   .group__name {
     font-weight: bold;
@@ -51,10 +52,11 @@
 
   .goal__text {
     width: 230px;
-    height: 100px;
     margin: 12px;
     padding: 5px;
-
+  }
+  .goal__name {
+    padding-top: 3px;
   }
 }
 

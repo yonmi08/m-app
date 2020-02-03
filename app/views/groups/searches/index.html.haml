@@ -12,10 +12,9 @@
         グループ検索
         .group__create
           .group__genre
-            = form_tag(groups_searches_path, method: "get") do |f|
-              = select_tag "genre", options_for_select([["勉強", "勉強"], ["健康", "健康"], ["美容", "美容"], ["仕事", "仕事"], ["趣味", "趣味"], ["その他", "その他"]]), placeholder: "ジャンル"
+            = form_tag(groups_searches_path, method: "get") do
+              = text_field :name, placeholder: "グループ名を検索する", class: "search-input"
             .group__name
               = text_field_tag :name , params[:name],placeholder: "作品名・サークル名など"
               = submit_tag("Search")
-              - @groups.each do |group|
-                = group.name
+              
