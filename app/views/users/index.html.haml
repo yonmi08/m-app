@@ -1,8 +1,8 @@
 .wrapper-my
   .my-header
     .my-header__left
-      - current_user.groups.each do |group|
-        = link_to group.name, group_messages_path(group.id)
+      - if @group.present?
+        = link_to @group.name, group_messages_path(@group.id)
     .my-header__center
       %a= "My Page"
     .my-header__right
@@ -15,21 +15,23 @@
         = link_to(edit_user_path(current_user.id)) do
           %p.sidebar__txt.Menu
             = "アカウント編集"
-        - if current_user.groups.blank?
+        - if @group.blank?
           = link_to(new_group_path) do
             %p.sidebar__txt.Menu
               = "グループ作成"
         - else
-          - current_user.groups.each do |group|
-            = link_to(group_messages_path(group.id)) do
-              %p.sidebar__txt.Menu
-                = "グループページ"
-            = link_to(edit_group_path(group.id)) do
-              %p.sidebar__txt.Menu
-                = "グループ編集"
-            = link_to(user_path(@user.id), method: :delete) do
-              %p.sidebar__txt.Menu
-                = "グループ脱退"
+          = link_to(group_messages_path(@group.id)) do
+            %p.sidebar__txt.Menu
+              = "グループページ"
+          = link_to(edit_group_path(@group.id)) do
+            %p.sidebar__txt.Menu
+              = "グループ編集"
+          = link_to(user_path(@user.id), method: :delete) do
+            %p.sidebar__txt.Menu
+              = "グループ脱退"
+        = link_to(groups_searches_path) do
+          %p.sidebar__txt.Menu
+            = "グループ検索"
         = link_to(new_user_diary_path(current_user.id)) do
           %p.sidebar__txt.Menu
             = "日記作成"
@@ -49,7 +51,7 @@
         - if @day.blank?
           .my-main__left__diary__top
             .my-main__left__diary__top__date
-              %a= Date.today
+              %a= Date.today.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
               %a= "---"
           .my-main__left__diary__text
@@ -57,14 +59,14 @@
         - else
           .my-main__left__diary__top
             .my-main__left__diary__top__date
-              %a= @day.date
+              %a= @day.date.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
               %a= @day.point
           .my-main__left__diary__text
             %a= simple_format(@day.text)
     .my-main__right
       .my-main__right__top
-        %a= "平均点数：#{@user.point_average}"
+        -# %a= "平均点数：#{@user.point_average}"
       .my-main__right__bottom
         .my-main__right__bottom__calendar
           #calendar

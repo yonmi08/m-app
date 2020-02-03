@@ -52,6 +52,7 @@
       display:none;
       text-align: center;
       background-color: #f1c7d6;
+      overflow: scroll;
       a {
         text-decoration: none;
         color: $bw3;
@@ -146,6 +147,7 @@
         border-radius: 5px;
         background-color: #fffff6;
         font-family: 'Shigoto';
+        font-size: 20px;
       }
     }
   }

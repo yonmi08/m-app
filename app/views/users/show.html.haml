@@ -1,8 +1,8 @@
 .wrapper-my
   .my-header
     .my-header__left
-      - @user.groups.each do |group|
-        = link_to group.name, group_messages_path(group.id)
+      - if @group.present?
+        = link_to @group.name, group_messages_path(@group.id)
     .my-header__center
       %a= "User page"
     .my-header__right
@@ -15,8 +15,8 @@
         = link_to(root_path) do
           %p.sidebar__txt.Menu
             = "マイページ"
-        - @user.groups.each do |group|
-          = link_to(group_messages_path(group.id)) do
+        - if @group.present?
+          = link_to(group_messages_path(@group.id)) do
             %p.sidebar__txt.Menu
               = "グループページ"
         = link_to(destroy_user_session_path, method: :delete) do
@@ -33,14 +33,15 @@
         - if @day.blank?
           .my-main__left__diary__top
             .my-main__left__diary__top__date
-              %a= Date.today
+              %a= Date.today.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
               %a= "---"
           .my-main__left__diary__text
+            %a= "入力された日記はまだありません。"
         - else
           .my-main__left__diary__top
             .my-main__left__diary__top__date
-              %a= @day.date
+              %a= @day.date.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
               %a= @day.point
           .my-main__left__diary__text
