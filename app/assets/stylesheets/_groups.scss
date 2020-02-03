@@ -130,37 +130,46 @@
   padding: 10px 20px;
   &__text {
     width: 100%;
-    height: 20%;
-    font-size: 24px;
+    font-size: 28px;
+    padding: 0 10px;
   }
   &__ogp {
+    display: flex;
+    background-color: $wh1;
+    border-radius: 5px;
+    padding: 10px;
+    height: 300px;
     width: 100%;
-    height: 90%;
-    &__title {
-      width: 100%;
-      font-size: 22px;
+    border: #ddd 1px solid;
+    &__img {
+      height: 100%;
+      width: auto;
+      display: block;
     }
     &__bottom {
-      width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: space-between;
-      &__img {
-        width: 65%;
-        height: 100%;
-        padding-bottom: 10px;
+      margin-left: 5px;
+      padding: 5px 20px;
+      border-left: #aaaaaa 1px solid;
+      &__title {
+        font-size: 25px;
+        padding: 0 5px;
+        &:hover {
+          color: #705d55;
+        }
       }
       &__content {
-        height: 100%;
-        width: 35%;
         color: $bw3;
-        padding: 5px;
+        &:hover {
+          color: #705d55;
+        }
       }
     }
-    a {
-      text-decoration: none;
-      font-size: 17px;
-    }
+  }
+  a {
+    text-decoration: none;
+    font-size: 17px;
+    color: $bw3;
   }
 }
 

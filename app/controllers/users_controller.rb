@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   before_action :set_diary, only: [:index, :show]
+  before_action :set_group, only: [:index, :show]
   before_action :action_json, only: [:index, :show]
   
   def index
@@ -44,6 +45,10 @@ class UsersController < ApplicationController
   def set_diary
     @diaries = Diary.where(user_id: @user.id).date_sort
     @day = @diaries.first
+  end
+
+  def set_group
+    @group = @user.groups.first
   end
 
   def action_json

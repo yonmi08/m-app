@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update, :join]
+  before_action :set_event, only: [:edit, :update]
+
   def new
     @group = Group.new
     @group.users << current_user
@@ -16,7 +18,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group.build_event
+
   end
 
   def update
@@ -45,5 +47,9 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def set_event
+    @group.build_event unless @group.event
   end
 end
