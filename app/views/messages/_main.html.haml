@@ -7,16 +7,8 @@
       = link_to(destroy_user_session_path, method: :delete) do
         = "ログアウト"
   .main__diary
-    - @group_users.each do |user|
-      - user.diaries.each do |diary|
-        .diary__top-box
-          .diary__name
-            = diary.date
-          .diary__rank
-            = diary.point
-        .diary__bottom-box
-          .diary__text
-            = diary.text
+    %canvas id "myChart" width="400" height="400"
+    %script draw_graph();
   .main__message
     = render @messages
   .main__form
@@ -24,10 +16,3 @@
       .input-box
         = f.text_field :content, class: "input-box__form", placeholder: "type a message"
         = f.submit 'Send', class: "submit-btn"
-
-
-<canvas id="myChart" width="400" height="400"></canvas> ←★追記
-<script>draw_graph();</script> ←★追記
-
-.canvas 
-.script draw_graph();
