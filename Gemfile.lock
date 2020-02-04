@@ -43,6 +43,8 @@ GEM
     bindex (0.8.1)
     builder (3.2.4)
     byebug (11.1.1)
+    chart-js-rails (0.1.7)
+      railties (> 3.1)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -206,6 +208,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  chart-js-rails (~> 0.1.4)
   coffee-rails (~> 4.2)
   devise
   font-awesome-sass

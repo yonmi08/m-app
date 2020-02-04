@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require Chart.min
 //= require moment
 //= require fullcalendar
 //= require_tree .
