@@ -10,16 +10,15 @@ class MessagesController < ApplicationController
     gon.user_name = []
     gon.user_point = []
     @group_users.each do |group_user|
-      group_user
+      gon.user_point << group_user.diaries.average(:point).round(1)
       gon.user_name << group_user.name
-      binding.pry
     end
   end
+
 
   def point
     @diaries = Diary.where(user_id: @user.id)
     gon.data = @diaries.average(:point).round(1)
-    gon.data = 3
   end
 
 
