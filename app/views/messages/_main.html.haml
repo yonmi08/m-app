@@ -13,6 +13,8 @@
         = link_to(destroy_user_session_path, method: :delete) do
           = "ログアウト"
   .main__body
+    -# - if (Date.today - (group.created_at + 7.days)) > 7
+    -#   .main__event
     .main__body__top
       <canvas id="myChart" width="200" height=90"></canvas>
       <script>draw_graph();</script>
@@ -46,3 +48,4 @@
         .goal-name
           = link_to(root_path(user.id)) do
             = user.name
+            = user.goal
