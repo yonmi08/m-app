@@ -17,7 +17,7 @@ class Group < ApplicationRecord
     Group.where("genre = ? and name LIKE(?)", genre, "%#{keyword}%")
   end
 
-  def point_average
-    # self.diaries.average(:point).round(1)
-  end
+  # def point_average
+  #   self.diaries.average(:point).round(1)
+  # end
 end

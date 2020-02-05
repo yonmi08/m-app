@@ -18,9 +18,6 @@ class GroupsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
 
   def update
     if @group.update(group_params)
@@ -34,9 +31,6 @@ class GroupsController < ApplicationController
     @group.users << current_user
     @group.save
     redirect_to root_path
-  end
-
-  def destroy
   end
 
   private

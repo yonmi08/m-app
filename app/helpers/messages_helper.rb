@@ -42,6 +42,7 @@ module MessagesHelper
       p doc.css('//meta[name="description"]/@content').to_s
     end
   end
+
 end
 
   
