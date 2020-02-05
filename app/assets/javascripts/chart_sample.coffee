@@ -3,11 +3,12 @@ window.draw_graph = ->
     myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple"], #①ラベルをユーザーの名前にする
-            # labels: gon.name, #①ラベルをユーザーの名前にする
+            # labels: ["Red", "Blue", "Yellow", "Green", "Purple"], #①ラベルをユーザーの名前にする
+            labels: gon.user_name, #①ラベルをユーザーの名前にする
             datasets: [{
                 label: '# 平均ポイント',
-                data: [5, 4, 3, 2, 1], #②データをユーザーのポイント平均点に変更する
+                # data: [5, 4, 3, 2, 1], #②データをユーザーのポイント平均点に変更する
+                data: [gon.datas], #②データをユーザーのポイント平均点に変更する
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

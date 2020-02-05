@@ -5,10 +5,11 @@
     .group__average
       = "平均点: #{@group.average}"
 
-  .side__goal
-    - @group_users.each do |user|
-      .goal__text
-        = user.goal
-        .goal__name
-          = link_to(root_path(user.id)) do
-            = user.name
+  .main-bottom
+    .main__message
+      = render @messages
+    .main__form
+      = form_for [@group, @message] do |f|
+        .input-box
+          = f.text_field :content, class: "input-box__form", placeholder: "type a message"
+          = f.submit 'Send', class: "submit-btn"
