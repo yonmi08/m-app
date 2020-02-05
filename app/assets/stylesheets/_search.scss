@@ -1,107 +1,175 @@
-* {
-  box-sizing: border-box;
+.se-wrapper {
+  height: 100vh;
+  color: $bw3;
 }
 
-.new-wrapper {
-  height: 125vh;
-  color: gray;
-}
-
-/*headerに関する記述*/
-.new-header {
+.se-header {
   width: 100%;
   height: 50px;
-  z-index: 1;
-  display: flex;
-  justify-content: flex-end;
-  padding: 12px;
   border-bottom: 2px solid paleturquoise;
-  a {
-    text-decoration: none;
-    color: gray;
-    font-size: 18px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  &__title {
+    font-size: 30px;
   }
-
-  &__log-out {
-    border: 2px solid darkgray;
-    color: paleturquoise;
-    border-radius: 3px;
-    margin-left: 15px;
-    padding: 13px;
-    text-align: center;
-    line-height: 1px;
+  &__right {
+    position: absolute;
+    right: 0;
+    display: flex;
+    &__name {
+      padding-right: 20px;
+      display: block;
+    }
+    &__log-out {
+      padding-right: 20px;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: gray;
+      font-size: 18px;
+      &:hover {
+        color: $bw3;
+      }
+    }
   }
 }
 
-/*bodyに関する記述(header以下)*/
 .body {
   width: 100%;
-  height: calc(120vh - 65px);
+  height: calc(100vh - 50px);
+  padding: 10px 60px 60px;
 }
 
-.new-form {
-  width: 800px;
-  height: 650px;
+.search-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 120px;
   margin: 0 auto;
+  padding: 15px 40px;
+  &__genre {
+    height: 100%;
+    width: 120px;
+    padding-right:10px;
+    #genre {
+      width: 100%;
+      height: 70%;
+      font-size: 17px;
+      border-radius: 5px;
+      border: #fff 1px solid;
+      background-color: #fdd;
+      color: $bw3;
+      outline: 0;
+    }
+  }
+  &__keyword {
+    height: 100%;
+    width: 500px;
+    padding-right:10px;
+    #keyword {
+      width: 100%;
+      height: 70%;
+      font-size: 17px;
+      border-radius: 5px;
+      border: #dad0d0 1px solid;
+      padding-left: 10px;
+      outline: 0;
+      color: $bw3;
+    }
+  }
+  &__submit {
+    height: 100%;
+    width: 120px;
+    padding-right:10px;
+    .search-btn {
+      width: 100%;
+      height: 70%;
+      background-color: #9cd3d0;
+      border-radius: 5px;
+      color: $bw3;
+      font-size: 17px;
+      border: #fff 1px solid;
+      outline: 0;
+      &:hover {
+        background-color: #74d3ce;
+      }
+    }
+  }
 }
 
-.new-form__message {
-  width: 800px;
-  height: 70px;
-  font-size: 25px;
-  text-align: center;
-}
-
-.group__create {
-  display: flex;
-}
-
-.new-group-create {
-  width: 800px;
-  height: 90px;
-  padding: 20px;
-  display: flex;
-}
-
-#group_genre {
-  width: 150px;
-  height: 40px;
-  border-radius: 5px;
-  line-height: 40px;
-  font-size: 20px;
-  box-shadow: 2px 2px 2px 2px paleturquoise;
-  background-color: transparent;
-  outline: 0;
-}
-
-.group__name-input {/*長すぎる場合も考えること*/
-  width: 500px;
-  height: 40px;
-  margin-left: 30px;
-  border-radius: 5px;
-  line-height: 40px;
-  font-size: 22px;
-  box-shadow: 2px 2px 2px 2px paleturquoise;
-  background-color: transparent;
-  outline: 0;
-}
- 
-.group__create__border {
-  display: flex;
-  padding: 40px 0px 20px 0px;
-
-  .new-border__input {
-    background-color: transparent;
-    border: 1px solid paleturquoise;
-    outline: 0;
-    width: 50px;
-    height: 50px;
-    margin-left: 30px;
-    font-size: 22px;
+.group-box {
+  padding: 30px 50px 60px;
+  height: calc(100% - 100px);
+  width: 100%;
+  &__frame {
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    background-color: #ffffee;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px 2px paleturquoise;
-    background-color: transparent;
-    outline: 0;
+    display: flex;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: solid 10px #ffffee;
+    tbody {
+      width: 100%;
+      font-size: 20px;
+      .title-bar {
+        height: 80px;
+        width: 100%;
+        padding-left: 20px;
+        text-align: center;
+        color: $bw3;
+        border-bottom: 3px solid $bw3;
+        .term {
+          width: 30%;
+        }
+        .name {
+          width:60%;
+        }
+        .value {
+          width: 10%;
+          a {
+            display: inline-block;
+          }
+        }
+      }
+      .group-list {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        border-bottom: solid 1px #ddac90;
+        cursor: pointer;
+        &:hover {
+          background-color: #ffc;
+        }
+        .term {
+          width: 30%;
+          text-align: center;
+        }
+        .name {
+          width:60%;
+          text-align: left;
+          padding-left: 40px;
+        }
+        .value {
+          width: 10%;
+        }
+        a {
+          text-decoration: none;
+          color: $bw3;
+          display: block;
+          width: 100%;
+          line-height: 60px;
+        }
+      }
+    }
   }
 }
 

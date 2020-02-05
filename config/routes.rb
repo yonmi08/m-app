@@ -12,7 +12,10 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :groups, except: [:show] do
+  resources :groups, except: [:index, :show] do
+  member do
+    post 'join'
+  end
     resources :messages, only: [:index, :create]
     resources :events, only: [:index]
   end
