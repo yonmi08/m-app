@@ -1,8 +1,13 @@
 $(function(){
   function buildHTML(message) {
     var html =  `<div class="message" message-id="${message.id}">
-                  <div class="message__name">
-                    ${message.user_name}
+                  <div class="message__top">
+                    <div class="message__top__name">
+                      ${message.user_name}
+                    </div>
+                    <div class="message__top__date">
+                      ${message.date}
+                    </div>
                   </div>
                   <div class="message__text">
                     ${message.content}
@@ -25,8 +30,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.main__message').append(html);
-      $('.main__message').animate({scrollTop: $('.main__message')[0].scrollHeight});
+      $('.side__body__message').append(html);
+      $('.side__body__message').animate({scrollTop: $('.side__body__message')[0].scrollHeight});
       $('form')[0].reset();
       $('.submit-btn').prop('disabled', false);
     })

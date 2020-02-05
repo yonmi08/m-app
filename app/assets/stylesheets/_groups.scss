@@ -10,80 +10,203 @@
   background: linear-gradient(to right, #f4f3f7, #faaca8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-/*side-barに関する記述*/
+/*sideに関する記述*/
 
 .side {
   width: 320px;
   height: 100vh;
-}
-
-.side__group {
-  width: 270px;
-  height: 70px;
-  margin: 30px;
-  padding: 20px;
-  border-bottom: 1px solid #e6b8c8;
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-
-  .group__name {
+  &__group {
+    margin: 0 auto;
+    width: 270px;
+    height: 70px;
+    padding: 7px 0;
+    border-bottom: 1px solid #e6b8c8;
     font-weight: bold;
-    font-size: 20px;
-
+    &__name {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    &__average {
+      padding-right: 15px;
+      text-align: right;
+    } 
   }
 
-  .rank {
-    padding-right: 15px;
-
-  } 
-} 
-
-
-
-.side__goal {
-  width: 250px;
-  height: 500px;
-  margin: 35px;
-  overflow: scroll;
-
-  .goal__text {
-    width: 230px;
-    margin: 12px;
-    padding: 5px;
-  }
-  .goal__name {
-    padding-top: 3px;
+  &__body {
+    width: 100%;
+    height: calc(100% - 70px);
+    padding: 10px;
+    &__message {
+      width: 100%;
+      height: calc(100% - 70px);
+      padding-right: 5px;
+      overflow: scroll;
+      .message {
+        background-color: #f4f3f7;
+        border-radius: 5px;
+        width: 100%;
+        padding: 5px;
+        margin: 5px;
+        &__top {
+          display: flex;
+          justify-content: space-between;
+          &__name {
+            font-size: 12px;
+          }
+          &__date {
+            font-size: 10px;
+          }
+        }
+        &__text {
+          padding-left: 3px;
+          font-size: 15px;
+        }
+      }
+    }
+    &__bottom {
+      width:100%;
+      height: 70px;
+      .new_message {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+      }
+      &__form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        .input-box {
+          width: 85%;
+          height: 100%;
+          padding: 0 10px;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+          border: #fff 0 solid;
+          outline: 0;
+        }
+        .submit-btn {
+          width: 15%;
+          height: 100%;
+          background-color: #faaca8;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border: #fff 0 solid;
+          color: $bw3;
+          outline: 0;
+          &:hover {
+            background-color: #f38882;
+          }
+        }
+      }
+    }
   }
 }
 
-
-/*mainに関する記述(header/diary/message/form)*/
+/*mainに関する記述*/
 
 .main {
-  width: calc(100% - 350px);
-  height: 100%;
+  width: calc(100% - 320px);
+  height: 100vh;
   border-left: 2px solid #e6b8c8;
+  overflow: scroll;
+  &__header {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    a {
+      text-decoration: none;
+      color: #4d3c42;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    &__menu {
+      background-color: #7657d4;
+      height: 100%;
+      width: 40px;
+      &__join {
+
+      }
+      &__name {
+        
+      }
+      &__log-out {
+        
+      }
+    }
+  }
+
+  &__body {
+    height: calc(100% - 40px);
+    width: 100%;
+    padding: 20px 30px;
+    &__top {
+      width: 100%;
+      height: 500px;
+      background-color: #fffefea2;
+      box-shadow: 2px 2px 2px 2px rosybrown;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    &__middle {
+      &__pass {
+        &__text {
+          width: 100%;
+          font-size: 28px;
+          padding: 0 10px;
+        }
+      }
+      &__fail {
+        &__text {
+          width: 100%;
+          font-size: 28px;
+          padding: 0 10px;
+        }
+      }
+      a {
+        text-decoration: none;
+        font-size: 17px;
+        color: $bw3;
+      }
+    }
+  }
 }
 
-/*以下からheaderに関する記述*/
-.main__header {
-  padding-right: 20px;
-  padding-top: 8px;
-  height: 40px;
+.ogp {
   display: flex;
-  justify-content: flex-end;
-  font-size: 16px;
-  a {
-    text-decoration: none;
-    color: #4d3c42;
-    font-size: 18px;
-    font-weight: bold;
+  background-color: $wh1;
+  border-radius: 5px;
+  padding: 10px;
+  height: 300px;
+  width: 100%;
+  border: #ddd 1px solid;
+  &__img {
+    height: 100%;
+    width: auto;
+    display: block;
   }
-  .header__name {
-    padding-right: 10px;
+  &__bottom {
+    height: 100%;
+    margin-left: 5px;
+    padding: 5px 20px;
+    border-left: #aaaaaa 1px solid;
+    &__title {
+      font-size: 25px;
+      padding: 0 5px;
+      &:hover {
+        color: #705d55;
+      }
+    }
+    &__content {
+      color: $bw3;
+      &:hover {
+        color: #705d55;
+      }
+    }
   }
 }
+
+
 
 /*以下からdiaryに関する記述*/
 
@@ -96,119 +219,8 @@
 //   box-shadow: 2px 2px 2px 2px rosybrown;
 // }
 
-.main__diary {
-  width: 900px;
-  height: 425px;
-  margin: 30px;
-  margin-left: 90px;
-  overflow: scroll;
-  box-shadow: 2px 2px 2px 2px rosybrown;
-
-  .diary__top-box {
-    display: flex;
-    padding: 12px 12px 0 12px;
-
-    .diary__name {
-      padding-right: 30px;
-      font-weight: bold;
-    }
-  }
-  .diary__bottom-box {
-    width: 900px;
-    padding: 12px;
-    .message__text {
-      margin-bottom: 15px;
-    }
-  }
-}
-
-/*以下からmessageに関する記述*/
-
-.main__message {
-  // background-color: #e6b8c8;
-  width: 900px;
-  height: 180px;
-  margin: 30px 30px 0 120px;
-  padding: 15px;
-  margin-left: 90px;
-  padding-bottom: 15px;
-  overflow: scroll;
-
-}
-
-.main-body {
-  height: calc(100% - 40px);
-  width: 100%;
-  padding: 20px 30px;
-}
 
 /*以下からformに関する記述*/
-
-.main__form {
-  height: 75px;
-  width: 900px;
-  padding: 10px;
-  margin-left: 120px;
-  display: flex;
-  .input-box {
-    position: relative;
-    height: 60px;
-    width: 750px;
-    margin: 0 auto;
-    margin-right: 5px;
-    right: 10px;
-  }
-}
-.main__close {
-  width: 100%;
-  height: 400px;
-  overflow: scroll;
-  box-shadow: 2px 2px 2px 2px rosybrown;
-  padding: 10px 20px;
-  &__text {
-    width: 100%;
-    font-size: 28px;
-    padding: 0 10px;
-  }
-  &__ogp {
-    display: flex;
-    background-color: $wh1;
-    border-radius: 5px;
-    padding: 10px;
-    height: 300px;
-    width: 100%;
-    border: #ddd 1px solid;
-    &__img {
-      height: 100%;
-      width: auto;
-      display: block;
-    }
-    &__bottom {
-      height: 100%;
-      margin-left: 5px;
-      padding: 5px 20px;
-      border-left: #aaaaaa 1px solid;
-      &__title {
-        font-size: 25px;
-        padding: 0 5px;
-        &:hover {
-          color: #705d55;
-        }
-      }
-      &__content {
-        color: $bw3;
-        &:hover {
-          color: #705d55;
-        }
-      }
-    }
-  }
-  a {
-    text-decoration: none;
-    font-size: 17px;
-    color: $bw3;
-  }
-}
 
 .main-bottom {
   height: calc(100% - 400px);
