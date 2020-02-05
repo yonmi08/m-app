@@ -7,7 +7,7 @@
   height: 100vh;
   width: 100%;
   color: #4d3c42;
-  background: linear-gradient(to right, #f4f3f7, #faaca8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  // background: linear-gradient(to right, #f4f3f7, #faaca8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /*sideに関する記述*/
@@ -35,12 +35,13 @@
   &__body {
     width: 100%;
     height: calc(100% - 70px);
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     &__message {
       width: 100%;
       height: calc(100% - 70px);
       padding-right: 5px;
       overflow: scroll;
+      padding: 0 30px 0 10px;
       .message {
         background-color: #f4f3f7;
         border-radius: 5px;
@@ -66,6 +67,7 @@
     &__bottom {
       width:100%;
       height: 70px;
+      padding: 5px 0;
       .new_message {
         width: 100%;
         height: 100%;
@@ -81,7 +83,7 @@
           padding: 0 10px;
           border-top-left-radius: 5px;
           border-bottom-left-radius: 5px;
-          border: #fff 0 solid;
+          border: #ddd 1px solid;
           outline: 0;
         }
         .submit-btn {
@@ -90,7 +92,7 @@
           background-color: #faaca8;
           border-top-right-radius: 5px;
           border-bottom-right-radius: 5px;
-          border: #fff 0 solid;
+          border: #ddd 1px solid;
           color: $bw3;
           outline: 0;
           &:hover {
@@ -107,8 +109,12 @@
 .main {
   width: calc(100% - 320px);
   height: 100vh;
-  border-left: 2px solid #e6b8c8;
+  border-left: 1px solid #e6b8c8;
   overflow: scroll;
+  background-image: url(unnamed.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 60px;
   &__header {
     width: 100%;
     height: 40px;
@@ -121,17 +127,26 @@
       font-weight: bold;
     }
     &__menu {
-      background-color: #7657d4;
-      height: 100%;
-      width: 40px;
+      background-color: $pk1;
+      text-align: center;
+      line-height: 50px;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      font-size: 20px;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 22px;
+      color: #fff;
       &__join {
-
+        // display: none;
       }
       &__name {
-        
+        // display: none;
       }
       &__log-out {
-        
+        // display: none;
       }
     }
   }
@@ -143,24 +158,34 @@
     &__top {
       width: 100%;
       height: 500px;
-      background-color: #fffefea2;
-      box-shadow: 2px 2px 2px 2px rosybrown;
-      padding: 10px 20px;
+      background-color: #fffefe;
+      box-shadow: 2px 2px 2px 2px #d6bebe;
       border-radius: 5px;
+      padding: 10px 20px;
+      margin-bottom: 30px;
     }
     &__middle {
+      border-radius: 5px;
       &__pass {
+        margin-bottom: 30px;
+        background-color: #fffefe;
+        box-shadow: 2px 2px 2px 2px #d6bebe;
+        border-radius: 5px;
         &__text {
+          padding: 5px 10px;
           width: 100%;
-          font-size: 28px;
-          padding: 0 10px;
+          font-size: 26px;
         }
       }
       &__fail {
+        margin-bottom: 30px;
+        background-color: #fffefe;
+        box-shadow: 2px 2px 2px 2px #d6bebe;
+        border-radius: 5px;
         &__text {
+          padding: 5px 10px;
           width: 100%;
-          font-size: 28px;
-          padding: 0 10px;
+          font-size: 26px;
         }
       }
       a {
@@ -169,27 +194,38 @@
         color: $bw3;
       }
     }
+    &__bottom {
+      background-color: #fffefe;
+      box-shadow: 2px 2px 2px 2px #d6bebe;
+      border-radius: 5px;
+      padding: 15px 5px;
+      margin-bottom: 30px;
+      height: 140px;
+      width: 100%;
+    }
   }
 }
 
 .ogp {
   display: flex;
-  background-color: $wh1;
-  border-radius: 5px;
+  background-color: #fffefe;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 10px;
-  height: 300px;
+  height: 200px;
   width: 100%;
-  border: #ddd 1px solid;
+  // border-top: #f0dfdf 1px solid;
   &__img {
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 300px;
     display: block;
+    object-fit: contain;
   }
   &__bottom {
     height: 100%;
     margin-left: 5px;
     padding: 5px 20px;
-    border-left: #aaaaaa 1px solid;
+    border-left: #d6bebe 1px solid;
     &__title {
       font-size: 25px;
       padding: 0 5px;
@@ -218,59 +254,3 @@
 //   overflow: scroll;
 //   box-shadow: 2px 2px 2px 2px rosybrown;
 // }
-
-
-/*以下からformに関する記述*/
-
-.main-bottom {
-  height: calc(100% - 400px);
-  width: 100%;
-  .main__message {
-    // background-color: #e6b8c8;
-    width: 100%;
-    height: calc(100% - 80px);
-    // margin: 30px 30px 0 120px;
-    padding: 15px;
-    // margin-left: 90px;
-    padding-bottom: 15px;
-    overflow: scroll;
-    .message__text {
-      padding-bottom: 10px;
-      width: 100%;
-    }
-  }
-  /*以下からformに関する記述*/
-  .main__form {
-    height: 80px;
-    width: 100%;
-    padding: 10px;
-    // margin-left: 120px;
-    display: flex;
-    .new_message {
-      width: 100%;
-      .input-box {
-        position: relative;
-        height: 60px;
-        width: 100%;
-        margin: 0 auto;
-        margin-right: 5px;
-        right: 10px;
-        display: flex;
-        .input-box__form {
-          height: 60px;
-          width: 100%;
-        }
-      }
-      .submit-btn {
-        width: 100px;
-        height: 50px;
-        padding: 0 30px;
-        margin: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        line-height: 50px;
-        background-color: powderblue;
-      }
-    }
-  }
-}
