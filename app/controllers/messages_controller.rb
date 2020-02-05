@@ -4,9 +4,23 @@ class MessagesController < ApplicationController
   def index
     @message = Message.new
     @messages = @group.messages.includes(:user)
-    @group_users = @group.users
     @event = @group.event
+    @group_users = @group.users
+
+    gon.user_name = []
+    gon.user_point = []
+    @group_users.each do |group_user|
+      gon.user_point << group_user.diaries.average(:point).round(1)
+      gon.user_name << group_user.name
+    end
   end
+
+
+  def point
+    @diaries = Diary.where(user_id: @user.id)
+    gon.data = @diaries.average(:point).round(1)
+  end
+
 
   def create
     @message = @group.messages.new(message_params)
