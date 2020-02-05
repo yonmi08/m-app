@@ -61,12 +61,28 @@
             .my-main__left__diary__top__date
               %a= @day.date.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
-              %a= @day.point
+              %a= @day.point #その日の点数を表示する部分
+              .star-rating
+                = radio_button "point", 1, class: "star-rating"
+                %i
+                = radio_button "point", 2, class: "star-rating"
+                %i
+                = radio_button "point", 3, class: "star-rating"
+                %i
+                = radio_button "point", 4, class: "star-rating"
+                %i
+                = radio_button "point", 5, class: "star-rating"
+                %i
+
           .my-main__left__diary__text
             %a= simple_format(@day.text)
     .my-main__right
-      .my-main__right__top
-        -# %a= "平均点数：#{@user.point_average}"
+      - if @day.blank?
+        .my-main__right__top
+          %a= "平均点数：合計点"
+      -else
+        .my-main__right__top
+          %a= "平均点数：#{@user.point_average}"
       .my-main__right__bottom
         .my-main__right__bottom__calendar
           #calendar

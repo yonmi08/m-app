@@ -2,17 +2,13 @@
   .side__group
     .group__name
       = @group.name
-    .rating-star
-      #{@group.point_average}
+    .group__average
+      = "平均点: #{@group.average}"
 
   .side__goal
-    .goal__text
-      texttexttexttext
-      texttexttexttext
-      .goal__name
-        name
-    .goal__text
-      texttexttexttext
-      texttexttexttext
-      .goal__name
-        name
+    - @group_users.each do |user|
+      .goal__text
+        = user.goal
+        .goal__name
+          = link_to(root_path(user.id)) do
+            = user.name

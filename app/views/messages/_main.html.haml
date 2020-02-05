@@ -10,6 +10,16 @@
     .header__log-out
       = link_to(destroy_user_session_path, method: :delete) do
         = "ログアウト"
+  .main__diary
+    <canvas id="myChart" width="200" height=90"></canvas>
+    <script>draw_graph();</script>
+  .main__message
+    = render @messages
+  .main__form
+    = form_for [@group, @message] do |f|
+      .input-box
+        = f.text_field :content, class: "input-box__form", placeholder: "type a message"
+        = f.submit 'Send', class: "submit-btn"
   .main-body
     - if @group.event.present?
       .main__close

@@ -2,6 +2,10 @@ class DiariesController < ApplicationController
   before_action :set_diary, only: [:edit, :update, :show, :destroy]
   before_action :set_user, only: [:edit, :update, :show, :new, :create]
 
+  def index
+    @diaries = Diary.includes(:user).all
+  end
+
   def new
     @diary = Diary.new
   end
