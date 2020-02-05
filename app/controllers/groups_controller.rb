@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.create(group_params)
     if @group.save 
+      flash[:success] = "Welcome to the Sample App!"
       redirect_to root_path
     else
       render :new

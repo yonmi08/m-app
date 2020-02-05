@@ -8,7 +8,9 @@ class User < ApplicationRecord
   has_many :messages
   has_many :diaries
   has_many :events
-  validates :name, :email, presence: true
+
+  validates :name, presence: true, length: { maximum: 12 }
+  validates :email, presence: true
 
   def point_average
     self.diaries.average(:point).round(1)

@@ -10,6 +10,7 @@
   font-style: normal;
 }
 @import "config/colors";
+@import "config/style";
 @import "./reset";
 @import "./groups";
 @import "modules/user";
@@ -19,3 +20,6 @@
 @import "diary-edit";
 @import "modules/calendar";
 @import "./search";
+@import "media-pc";
+@import "media-tab";
+@import "media-sp";

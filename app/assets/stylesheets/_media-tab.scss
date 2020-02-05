@@ -1,0 +1,157 @@
+.my-header {
+  @include tab {
+    height: 60px;
+    padding: 0 24px;
+    font-size: 16px;
+  };
+  &__left {
+    @include tab {
+      line-height: 60px;
+      word-break: keep-all;
+    };
+  }
+  &__center {
+    @include tab {
+      font-size: 22px;
+      line-height: 60px;
+    };
+  }
+  &__right {
+    @include tab {
+      line-height: 60px;
+    };
+    .header__icon {
+      @include tab {
+        font-size: 16px;
+      };
+    }
+    .sidebar {
+      @include tab {
+        width:30%;
+      };
+      &__inner {
+        @include tab {
+          font-size: 24px;
+          text-align: center;
+        };
+        &__ttl {
+          @include tab {
+            font-size: 30px;
+          };
+        }
+        &__icon {
+          @include tab {
+            font-size:20px;
+            color:$bw3;
+            position: absolute;
+            top: 23px;
+            right: 10px;
+          };
+        }
+      }
+      &__txt {
+        @include tab {
+          font-size: 20px;
+          text-align: center;
+        };
+      }
+    }
+  }
+}
+
+.my-main {
+  @include tab {
+    display:block;
+    padding: 0;
+  };
+  &__left {
+    @include tab {
+      width: 100%;
+      display: block;
+      height: 100%;
+      padding: 20px 10px;
+      align-items: center;
+    };
+    &__profile {
+      @include tab {
+        font-size: 18px;
+        width: 100%;
+        height: 40%;
+        padding-top: 0px;
+      };
+      &__name {
+        a {
+          @include tab {
+            font-size: 23px;
+            padding-top: 0px;
+          };
+        }
+      }
+      &__email {
+        a {
+          @include tab {
+            font-size: 23px;
+            padding-top: 0px;
+          };
+        }
+      }
+      &__goal {
+        a {
+          @include tab {
+            font-size: 23px;
+            padding-top: 0px;
+          };
+        }
+      }
+    }
+    &__diary {
+      @include tab {
+        width: 100%;
+        height: 60%;
+      };
+      &__top {
+        &__date {
+          @include tab {
+            font-size: 24px;
+          };
+        }
+        &__point {
+          @include tab {
+            font-size: 28px;
+            text-align: right;
+          };
+        }
+      }
+      &__text {
+        @include tab {
+          font-size: 33px;
+          width: 100%;
+          height: 80%;
+        };
+      }
+    }
+  }
+  &__right {
+    @include tab {
+      width: 100%;
+      padding: 0;
+    };
+    &__top {
+      @include tab {
+      };
+      a {
+        @include tab {
+        };
+      }
+    }
+    &__bottom {
+      #calendar {
+        @include tab {
+          width: 100%;
+          height: auto;
+          padding: 0;
+        };
+      }
+    }
+  }
+} 

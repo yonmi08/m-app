@@ -10,8 +10,8 @@
       .sidebar
         .sidebar__inner
           = "menu"
-          .sidebar__inner__ttl.Menu
-            %i= icon('far', 'times-circle', class: "sidebar__inner__ttl__icon")
+        .sidebar__inner__ttl.Menu
+          %i= icon('far', 'times-circle', class: "sidebar__inner__icon")
         = link_to(edit_user_path(current_user.id)) do
           %p.sidebar__txt.Menu
             = "アカウント編集"
