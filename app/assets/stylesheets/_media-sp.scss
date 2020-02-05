@@ -1,0 +1,149 @@
+.my-header {
+  @include sp {
+    height: 60px;
+    padding: 0 12px;
+    font-size: 10px;
+  };
+  &__left {
+    @include sp {
+      line-height: 60px;
+      word-break: keep-all;
+    };
+  }
+  &__center {
+    @include sp {
+      font-size: 18px;
+      line-height: 60px;
+    };
+  }
+  &__right {
+    @include sp {
+      line-height: 60px;
+    };
+    .header__icon {
+      @include sp {
+        font-size: 16px;
+      };
+    }
+    .sidebar {
+      @include sp {
+        width:35%;
+      };
+      &__inner {
+        @include sp {
+          font-size: 18px;
+          text-align: center;
+        };
+        &__ttl {
+          @include sp {
+            font-size: 24px;
+          };
+        }
+        &__icon {
+          @include sp {
+            font-size:14px;
+            color:$bw3;
+            position: absolute;
+            top: 23px;
+            right: 10px;
+          };
+        }
+      }
+      &__txt {
+        @include sp {
+          font-size: 13px;
+          text-align: center;
+        };
+      }
+    }
+  }
+}
+
+.my-main {
+  @include sp {
+    display:block;
+    padding: 0;
+  };
+  &__left {
+    @include sp {
+      width: 100%;
+      display: block;
+      height: 100%;
+      padding: 20px 10px;
+      align-items: center;
+    };
+    &__profile {
+      @include sp {
+        font-size: 18px;
+        width: 100%;
+        height: 40%;
+        padding-top: 0px;
+      };
+      &__name {
+        a {
+          @include sp {
+            font-size: 18px;
+            padding-top: 0px;
+          };
+        }
+      }
+      &__email {
+        a {
+          @include sp {
+            font-size: 18px;
+            padding-top: 0px;
+          };
+        }
+      }
+      &__goal {
+        a {
+          @include sp {
+            font-size: 18px;
+            padding-top: 0px;
+          };
+        }
+      }
+    }
+    &__diary {
+      @include sp {
+        width: 100%;
+        height: 60%;
+      };
+      &__top {
+        &__date {
+          @include sp {
+            font-size: 16px;
+          };
+        }
+        &__point {
+          @include sp {
+            font-size: 16px;
+            text-align: right;
+          };
+        }
+      }
+      &__text {
+        @include sp {
+          font-size: 16px;
+          width: 100%;
+          height: 80%;
+        };
+      }
+    }
+  }
+  &__right {
+    @include sp {
+      width: 100%;
+      padding: 0;
+    };
+    &__bottom {
+      #calendar {
+        @include sp {
+          width: 100%;
+          height: auto;
+          padding: 0;
+        };
+      }
+    }
+  }
+} 

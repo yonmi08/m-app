@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
     )
   });
   /*close*/
-  $('.sidebar__inner__ttl__icon').on('click',function(){
+  $('.sidebar__inner__icon').on('click',function(){
     $('.sidebar').animate({
       right:'-200px'
     },

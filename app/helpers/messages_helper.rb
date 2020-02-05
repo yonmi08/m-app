@@ -25,6 +25,8 @@ module MessagesHelper
     doc = set_ogp(url)
     if doc.css('//meta[property="og:site_name"]/@content').present?
       p doc.css('//meta[property="og:site_name"]/@content').to_s
+    elsif doc.css('//meta[property="og:title"]/@content').present?
+      p doc.css('//meta[property="og:title"]/@content').to_s
     elsif doc.css('//title').present?
       p doc.css('//title').inner_text
     else

@@ -1,0 +1,145 @@
+.my-header {
+  @include pc {
+    height: 100px;
+    padding: 0 30px;
+    font-size: 22px;
+  };
+  &__left {
+    @include pc {
+      line-height: 100px;
+      word-break: keep-all;
+    };
+  }
+  &__center {
+    @include pc {
+      font-size: 30px;
+      line-height: 100px;
+    };
+  }
+  &__right {
+    @include pc {
+      line-height: 100px;
+    };
+    .header__icon {
+      @include pc {
+        font-size: 26px;
+      };
+    }
+    .sidebar {
+      @include pc {
+        width:25%;
+      };
+      &__inner {
+        @include pc {
+          font-size: 30px;
+          text-align: center;
+        };
+        &__icon {
+          @include pc {
+            font-size: 24px;
+            color:$bw3;
+            position: absolute;
+            top: 40px;
+            right: 20px;
+          };
+        }
+      }
+      &__txt {
+        @include pc {
+          font-size: 24px;
+          text-align: center;
+        };
+      }
+    }
+  }
+}
+
+.my-main {
+  @include pc {
+    padding: 0;
+    display: block;
+  };
+  &__left {
+    @include pc {
+      width: 100%;
+      display: flex;
+      height: 50%;
+      padding: 20px 10px;
+    };
+    &__profile {
+      @include pc {
+        width: 50%;
+        height: 100%;
+        padding-top: 10px;
+      };
+      &__name {
+        a {
+          @include pc {
+            font-size: 30px;
+            padding-top: 0px;
+          };
+        }
+      }
+      &__email {
+        a {
+          @include pc {
+            font-size: 30px;
+            padding-top: 0px;
+          };
+        }
+      }
+      &__goal {
+        a {
+          @include pc {
+            font-size: 30px;
+            padding-top: 0px;
+          };
+        }
+      }
+    }
+    &__diary {
+      @include pc {
+        width: 50%;
+        height: 100%;
+      };
+      &__top {
+        &__date {
+          @include pc {
+            font-size: 24px;
+            width: 100%;
+          };
+        }
+        &__point {
+          @include pc {
+            font-size: 28px;
+            width: 100%;
+            text-align: right;
+          };
+        }
+      }
+      &__text {
+        @include pc {
+          font-size: 33px;
+          width: 100%;
+          height: 80%;
+        };
+      }
+    }
+  }
+  &__right {
+    @include pc {
+      width: 100%;
+      padding: 0;
+      display: block;
+    };
+    &__bottom {
+      #calendar {
+        @include pc {
+          width: 100%;
+          height: auto;
+          padding: 0;
+        };
+      }
+    }
+  }
+} 

@@ -26,7 +26,6 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.main__message').append(html);
-      console.log(html)
       $('.main__message').animate({scrollTop: $('.main__message')[0].scrollHeight});
       $('form')[0].reset();
       $('.submit-btn').prop('disabled', false);
@@ -35,4 +34,4 @@ $(function(){
       alert('error');
     })
   })
-});
+}); 

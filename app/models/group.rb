@@ -9,7 +9,8 @@ class Group < ApplicationRecord
   has_one :event, inverse_of: :group, dependent: :destroy
   accepts_nested_attributes_for :event
 
-  validates :name, :genre, :border, presence: true
+  validates :name, presence: true, length: { maximum: 12 }
+  validates :genre, :border, presence: true
 
   def self.search(keyword, genre)
     return Group.all unless keyword && genre
