@@ -1,47 +1,48 @@
 .main
   .main__header
-    .header__join
-      - if current_user.groups.blank? and @group.users.size < 5
-        = link_to(join_group_path(@group.id), method: :post) do
-          = "グループ加入"
-    .header__name
-      = link_to(root_path(current_user.id)) do
-        = current_user.name
-    .header__log-out
-      = link_to(destroy_user_session_path, method: :delete) do
-        = "ログアウト"
-  .main__diary
-    <canvas id="myChart" width="200" height=90"></canvas>
-    <script>draw_graph();</script>
-  .main-body
-    - if @group.event.present?
-      .main__close
-        .main__close__text
+    %ul.main__header__menu
+      %i= icon('fa', 'bars',  class: "header__menu__icon")
+      %li.main__header__menu__join
+        - if current_user.groups.blank? and @group.users.size < 5
+          = link_to(join_group_path(@group.id), method: :post) do
+            = "グループ加入"
+      %li.main__header__menu__name
+        = link_to(root_path(current_user.id)) do
+          = current_user.name
+      %li.main__header__menu__log-out
+        = link_to(destroy_user_session_path, method: :delete) do
+          = "ログアウト"
+  .main__body
+    .main__body__top
+      <canvas id="myChart" width="200" height=90"></canvas>
+      <script>draw_graph();</script>
+    .main__body__middle
+      .main__body__middle__pass
+        .main__body__middle__pass__text
+          = simple_format @group.event.fail_text
+        = link_to(@group.event.pass_url) do
+          .ogp
+            = image_tag tumbnaill_image(@group.event.pass_url), class: "ogp__img"
+            .ogp__bottom
+              .ogp__bottom__title
+                = tumbnaill_title(@group.event.pass_url).truncate(22, omission: '…')
+              .ogp__bottom__content
+                = tumbnaill_content(@group.event.pass_url)#.truncate(40, omission: '…')
+      .main__body__middle__fail
+        .main__body__middle__fail__text
           = simple_format @group.event.fail_text
         = link_to(@group.event.fail_url) do
-          .main__close__ogp
-            = image_tag tumbnaill_image(@group.event.fail_url), class: "main__close__ogp__img"
-            .main__close__ogp__bottom
-              .main__close__ogp__bottom__title
+          .ogp
+            = image_tag tumbnaill_image(@group.event.fail_url), class: "ogp__img"
+            .ogp__bottom
+              .ogp__bottom__title
                 = tumbnaill_title(@group.event.fail_url).truncate(22, omission: '…')
-              .main__close__ogp__bottom__content
+              .ogp__bottom__content
                 = tumbnaill_content(@group.event.fail_url)#.truncate(40, omission: '…')
-    - else 
-      .main__diary
-        - @group_users.each do |user|
-          - user.diaries.each do |diary|
-            .diary__top-box
-              .diary__name
-                = diary.date
-              .diary__rank
-                = diary.point
-            .diary__bottom-box
-              .diary__text
-                = diary.text
-  .side__goal
-    - @group_users.each do |user|
-      .goal__text
-        = user.goal
-        .goal__name
+    .main__body__bottom
+      - @group_users.each do |user|
+        .goal-text
+          = user.goal
+        .goal-name
           = link_to(root_path(user.id)) do
             = user.name

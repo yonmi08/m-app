@@ -1,5 +1,8 @@
 .message{message: {id: message.id}}
-  .message__name
-    = message.user.name
+  .message__top
+    .message__top__name
+      = message.user.name
+    .message__top__date
+      = message.created_at.strftime("%m/%d %H:%M")
   .message__text
     = message.content
