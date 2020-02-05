@@ -10,5 +10,5 @@
       .goal__text
         = user.goal
         .goal__name
-          = user.name
-
+          = link_to(root_path(user.id)) do
+            = user.name

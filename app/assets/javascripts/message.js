@@ -25,8 +25,9 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.message').append(html);
-      $('.message').animate({scrollTop: $('.message')[0].scrollHeight});
+      $('.main__message').append(html);
+      console.log(html)
+      $('.main__message').animate({scrollTop: $('.main__message')[0].scrollHeight});
       $('form')[0].reset();
       $('.submit-btn').prop('disabled', false);
     })

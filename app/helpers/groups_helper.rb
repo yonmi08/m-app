@@ -11,4 +11,10 @@ module GroupsHelper
     end
     sum_point / sum_diary.to_f
   end
+
+  def depend
+    self.users.each do |user|
+      gon.name = user.name
+    end
+  end
 end

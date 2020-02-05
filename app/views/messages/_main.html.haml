@@ -7,8 +7,8 @@
       = link_to(destroy_user_session_path, method: :delete) do
         = "ログアウト"
   .main__diary
-    %canvas id "myChart" width="400" height="400"
-    %script draw_graph();
+    <canvas id="myChart" width="200" height=90"></canvas>
+    <script>draw_graph();</script>
   .main__message
     = render @messages
   .main__form
