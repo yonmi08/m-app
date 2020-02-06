@@ -5,4 +5,4 @@
     .message__top__date
       = message.created_at.strftime("%m/%d %H:%M")
   .message__text
-    = message.content
+    = simple_format(message.content)
