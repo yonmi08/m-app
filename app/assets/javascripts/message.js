@@ -79,25 +79,3 @@ $(function(){
 // // }
 }); 
 
-
-/* side var */
-
-$(function(){
-  // 
-  var duration = 300;
-
-  // aside ----------------------------------------
-  var $aside = $('side__header > .side__header__aside');
-  var $asidButton = $aside.find('side__header__aside__button')
-      .on('click', function(){
-          $aside.toggleClass('open');
-          if($aside.hasClass('open')){
-              $aside.stop(true).animate({left: '-70px'}, duration, 'easeOutBack');
-              $asidButton.find('img').attr('src', 'images/btn_close.png');
-          }else{
-              $aside.stop(true).animate({left: '-320px'}, duration, 'easeInBack');
-              $asidButton.find('img').attr('src', 'images/btn_open.png');
-          };
-      });
-});
-
