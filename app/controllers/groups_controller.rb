@@ -29,8 +29,9 @@ class GroupsController < ApplicationController
 
   def join
     @group.users << current_user
+    @group.flag = 1 unless @group.flag == 1
     @group.save
-    redirect_to root_path
+    redirect_to group_messages_path(@group.id)
   end
 
   private

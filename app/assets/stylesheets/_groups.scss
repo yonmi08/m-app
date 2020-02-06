@@ -95,6 +95,7 @@
           border: #ddd 1px solid;
           color: $bw3;
           outline: 0;
+          font-size: 14px;
           &:hover {
             background-color: #f38882;
           }
@@ -114,12 +115,43 @@
   background-image: url(unnamed.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 0 60px;
   &__header {
     width: 100%;
-    height: 40px;
     display: flex;
     justify-content: flex-end;
+    &__pass {
+      width: 100%;
+      background-color: #e2326f;
+      text-align: center;
+      padding: 10px;
+      color: #fff;
+    }
+    &__fail {
+      width: 100%;
+      background-color: #3235e2;
+      text-align: center;
+      padding: 10px;
+      color: #fff;
+    }
+    .event-title {
+      font-size: 30px;
+    }
+    .event-text {
+      font-size: 20px;
+    }
+    &__bar {
+      width: 100%;
+      // background-color: #fffefe;
+      padding: 10px;
+      color: $bw3;
+      text-align: center;
+      &__title {
+        font-size: 30px;
+      }
+      &__text {
+        font-size: 20px;
+      }
+    }
     a {
       text-decoration: none;
       color: #4d3c42;
@@ -139,6 +171,9 @@
       right: 20px;
       font-size: 22px;
       color: #fff;
+      &:hover {
+        background-color: #df7c9e;
+      }
       &__join {
         // display: none;
       }
@@ -154,7 +189,7 @@
   &__body {
     height: calc(100% - 40px);
     width: 100%;
-    padding: 20px 30px;
+    padding: 30px 90px;
     &__top {
       width: 100%;
       height: 500px;
@@ -166,26 +201,28 @@
     }
     &__middle {
       border-radius: 5px;
-      &__pass {
+      &__event {
         margin-bottom: 30px;
         background-color: #fffefe;
         box-shadow: 2px 2px 2px 2px #d6bebe;
         border-radius: 5px;
-        &__text {
-          padding: 5px 10px;
-          width: 100%;
-          font-size: 26px;
+        &__pass {
+          font-size: 30px;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          color: #fff;
+          text-align: center;
+          background-color: #e23270;
+          border-top-right-radius: 5px;
+          border-top-left-radius: 5px;
         }
-      }
-      &__fail {
-        margin-bottom: 30px;
-        background-color: #fffefe;
-        box-shadow: 2px 2px 2px 2px #d6bebe;
-        border-radius: 5px;
-        &__text {
-          padding: 5px 10px;
-          width: 100%;
-          font-size: 26px;
+        &__fail {
+          font-size: 30px;
+          color: #fff;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+          text-align: center;
+          background-color: #2943d4;
+          border-top-right-radius: 5px;
+          border-top-left-radius: 5px;
         }
       }
       a {
@@ -200,8 +237,23 @@
       border-radius: 5px;
       padding: 15px 5px;
       margin-bottom: 30px;
-      height: 140px;
       width: 100%;
+      .goal-name {
+        display: inline;
+        font-size: 26px;
+      }
+      .goal-text {
+        display: inline;
+        padding-left: 10px;
+        font-size: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: $bw3;
+        &:hover {
+          color: #926557;
+        }
+      }
     }
   }
 }
@@ -212,16 +264,17 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 10px;
-  height: 200px;
+  height: 220px;
   width: 100%;
   // border-top: #f0dfdf 1px solid;
   &__img {
-    height: auto;
+    height: 100%;
     width: 300px;
     display: block;
     object-fit: contain;
   }
   &__bottom {
+    width: calc(100% - 300px);
     height: 100%;
     margin-left: 5px;
     padding: 5px 20px;
