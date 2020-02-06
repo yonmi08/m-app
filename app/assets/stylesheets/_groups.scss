@@ -105,17 +105,65 @@
   }
 }
 
+.side {
+  position: relative;
+}
+
+.open aside {
+  right: -70px;
+}
+
+.side__header > aside {
+    background-color: rgba(0,0,0,0.8);
+    width: 320px;
+    height: 100%;
+    top: 0;
+    right: -320px;
+    position: fixed;
+}
+
+.side__header > aside ul {
+  margin: 0;
+  padding: 0;
+  top: 50px;
+  right: 114px;
+  position: absolute;
+}
+
+.side__header > aside li {
+  margin: 0 0 20px;
+}
+
+// .side__header__aside__log-out {
+//   margin: 0 0 20px;
+// }
+
+.side__header > aside button {
+  background-color: rgba(0,0,0,0.8);
+  display: block;
+  position: absolute;
+  top: 150px;
+  right: 320px;
+  width: 52px;
+  height: 132px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+
 /*mainに関する記述*/
 
 .main {
-  width: calc(100% - 320px);
+  width: calc(100% - 670px);
   height: 100vh;
   border-left: 1px solid #e6b8c8;
   overflow: scroll;
   background-image: url(unnamed.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  &__header {
+  padding: 0 60px;
+  &__header__aside {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -158,7 +206,7 @@
       font-size: 18px;
       font-weight: bold;
     }
-    &__menu {
+    &__menu__aside {
       background-color: $pk1;
       text-align: center;
       line-height: 50px;
@@ -295,6 +343,14 @@
   }
 }
 
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
 
 
 /*以下からdiaryに関する記述*/
