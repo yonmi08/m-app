@@ -1,9 +1,25 @@
 .side
+  .side__header
+    %aside
+      %ul.side__header__aside__menu
+        %i= icon('fa', 'bars',  class: "header__menu__icon")
+        %li.side__header__aside__menu__join
+          - if current_user.groups.blank? and @group.users.size < 5
+            = link_to(join_group_path(@group.id), method: :post) do
+              = "グループ加入"
+        %li.side__header__aside__menu__name
+          = link_to(root_path(current_user.id)) do
+            = current_user.name
+        %li.side__header__aside__menu__log-out
+          = link_to(destroy_user_session_path, method: :delete) do
+            = "ログアウト"
+      %button.side__header__aside__button
+        %img{:src => "/assets/btn_open.png"}
   .side__group
     .side__group__name
       = @group.name
     .side__group__average
-      = "平均点: #{@group_points.round(1)}"
+      = "平均点: #{@group.average.round(1)}"
   .side__body
     .side__body__message
       = render @messages
@@ -12,3 +28,23 @@
         .side__body__bottom__form
           = f.text_field :content, class: "input-box", placeholder: "type a message"
           = f.submit 'Send', class: "submit-btn"
+
+
+
+-# .side
+-#   .side__header
+-#     %aside.side__header__aside
+-#       %ul.side__header__aside__menu
+-#         %i= icon('fa', 'bars',  class: "header__menu__icon")
+-#         %li.side__header__aside__menu__join
+-#           - if current_user.groups.blank? and @group.users.size < 5
+-#             = link_to(join_group_path(@group.id), method: :post) do
+-#               = "グループ加入"
+-#         %li.side__header__aside__menu__name
+-#           = link_to(root_path(current_user.id)) do
+-#             = current_user.name
+-#         %li.side__header__aside__menu__log-out
+-#           = link_to(destroy_user_session_path, method: :delete) do
+-#             = "ログアウト"
+-#       %button.side__header__aside__button
+-#         %img{:src => "/assets/btn_open.png"}

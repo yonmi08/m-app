@@ -95,7 +95,6 @@
           border: #ddd 1px solid;
           color: $bw3;
           outline: 0;
-          font-size: 14px;
           &:hover {
             background-color: #f38882;
           }
@@ -105,60 +104,76 @@
   }
 }
 
+.side {
+  position: relative;
+}
+
+.open aside {
+  right: -70px;
+}
+
+.side__header > aside {
+    background-color: rgba(0,0,0,0.8);
+    width: 320px;
+    height: 100%;
+    top: 0;
+    right: -320px;
+    position: fixed;
+}
+
+.side__header > aside ul {
+  margin: 0;
+  padding: 0;
+  top: 50px;
+  right: 114px;
+  position: absolute;
+}
+
+.side__header > aside li {
+  margin: 0 0 20px;
+}
+
+// .side__header__aside__log-out {
+//   margin: 0 0 20px;
+// }
+
+.side__header > aside button {
+  background-color: rgba(0,0,0,0.8);
+  display: block;
+  position: absolute;
+  top: 150px;
+  right: 320px;
+  width: 52px;
+  height: 132px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+
 /*mainに関する記述*/
 
 .main {
-  width: calc(100% - 320px);
+  width: calc(100% - 670px);
   height: 100vh;
   border-left: 1px solid #e6b8c8;
   overflow: scroll;
   background-image: url(unnamed.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  &__header {
+  padding: 0 60px;
+  &__header__aside {
     width: 100%;
+    height: 40px;
     display: flex;
     justify-content: flex-end;
-    &__pass {
-      width: 100%;
-      background-color: #e2326f;
-      text-align: center;
-      padding: 10px;
-      color: #fff;
-    }
-    &__fail {
-      width: 100%;
-      background-color: #3235e2;
-      text-align: center;
-      padding: 10px;
-      color: #fff;
-    }
-    .event-title {
-      font-size: 30px;
-    }
-    .event-text {
-      font-size: 20px;
-    }
-    &__bar {
-      width: 100%;
-      // background-color: #fffefe;
-      padding: 10px;
-      color: $bw3;
-      text-align: center;
-      &__title {
-        font-size: 30px;
-      }
-      &__text {
-        font-size: 20px;
-      }
-    }
     a {
       text-decoration: none;
       color: #4d3c42;
       font-size: 18px;
       font-weight: bold;
     }
-    &__menu {
+    &__menu__aside {
       background-color: $pk1;
       text-align: center;
       line-height: 50px;
@@ -171,9 +186,6 @@
       right: 20px;
       font-size: 22px;
       color: #fff;
-      &:hover {
-        background-color: #df7c9e;
-      }
       &__join {
         // display: none;
       }
@@ -185,77 +197,6 @@
       }
     }
   }
-
-  &__body {
-    height: calc(100% - 40px);
-    width: 100%;
-    padding: 30px 90px;
-    &__top {
-      width: 100%;
-      height: 500px;
-      background-color: #fffefe;
-      box-shadow: 2px 2px 2px 2px #d6bebe;
-      border-radius: 5px;
-      padding: 10px 20px;
-      margin-bottom: 30px;
-    }
-    &__middle {
-      border-radius: 5px;
-      &__event {
-        margin-bottom: 30px;
-        background-color: #fffefe;
-        box-shadow: 2px 2px 2px 2px #d6bebe;
-        border-radius: 5px;
-        &__pass {
-          font-size: 30px;
-          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-          color: #fff;
-          text-align: center;
-          background-color: #e23270;
-          border-top-right-radius: 5px;
-          border-top-left-radius: 5px;
-        }
-        &__fail {
-          font-size: 30px;
-          color: #fff;
-          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-          text-align: center;
-          background-color: #2943d4;
-          border-top-right-radius: 5px;
-          border-top-left-radius: 5px;
-        }
-      }
-      a {
-        text-decoration: none;
-        font-size: 17px;
-        color: $bw3;
-      }
-    }
-    &__bottom {
-      background-color: #fffefe;
-      box-shadow: 2px 2px 2px 2px #d6bebe;
-      border-radius: 5px;
-      padding: 15px 5px;
-      margin-bottom: 30px;
-      width: 100%;
-      .goal-name {
-        display: inline;
-        font-size: 26px;
-      }
-      .goal-text {
-        display: inline;
-        padding-left: 10px;
-        font-size: 20px;
-      }
-      a {
-        text-decoration: none;
-        color: $bw3;
-        &:hover {
-          color: #926557;
-        }
-      }
-    }
-  }
 }
 
 .ogp {
@@ -264,17 +205,16 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 10px;
-  height: 220px;
+  height: 200px;
   width: 100%;
   // border-top: #f0dfdf 1px solid;
   &__img {
-    height: 100%;
+    height: auto;
     width: 300px;
     display: block;
     object-fit: contain;
   }
   &__bottom {
-    width: calc(100% - 300px);
     height: 100%;
     margin-left: 5px;
     padding: 5px 20px;
@@ -295,6 +235,14 @@
   }
 }
 
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
 
 
 /*以下からdiaryに関する記述*/
