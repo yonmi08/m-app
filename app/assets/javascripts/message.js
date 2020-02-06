@@ -1,6 +1,7 @@
 $(function(){
   last_message_id = $('.message:last').data("message-id");
   console.log(last_message_id);
+
   function buildHTML(message) {
     var html =  `<div class="message" message-id="${message.id}">
                   <div class="message__top">
@@ -41,18 +42,10 @@ $(function(){
       alert('error');
     })
   })
+
+
+
   
-  // var reloadMessages = function() {
-  //   last_message_id = $('.message:last').data("message-id");
-  //   console.log('hello')
-  //   $.ajax({
-  //     //ルーティングで設定した通り/groups/id番号/api/messagesとなるよう文字列を書く
-  //     url: "api/messages",
-  //     type: 'get',
-  //     dataType: 'json',
-  //     data: {id: last_message_id}
-  //   })
-  //   // .done(function(messages) {
 
 //   var reloadMessages = function() {
 //     last_message_id = $('.message:last').data("message-id");
