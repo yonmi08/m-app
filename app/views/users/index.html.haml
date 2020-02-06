@@ -79,7 +79,7 @@
     .my-main__right
       - if @day.blank?
         .my-main__right__top
-          %a= "平均点数：合計点"
+          %a= "平均点数：0"
       -else
         .my-main__right__top
           %a= "平均点数：#{@user.point_average}"
