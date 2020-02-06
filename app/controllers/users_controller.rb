@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   before_action :set_diary, only: [:index, :show]
-  before_action :set_group, only: [:index, :show]
+  before_action :set_group, only: [:index, :show, :destroy]
   before_action :action_json, only: [:index, :show]
   
   def index
@@ -25,6 +25,10 @@ class UsersController < ApplicationController
   
   def destroy
     @user.groups.delete_all
+    if @group.users.blank?
+      @group.flag = 0
+      @group.save
+    end
     redirect_to root_path
   end
 

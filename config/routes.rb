@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root 'users#index'
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resources :diaries
-    # resources :diaries, except: [:index]
   end
   namespace :groups do
     resources :searches, only: [:index] do
@@ -17,7 +16,6 @@ Rails.application.routes.draw do
     post 'join'
   end
     resources :messages, only: [:index, :create]
-    resources :events, only: [:index]
   end
   namespace :api do
     resources :messages, only: :index, defaults: { format: 'json' }

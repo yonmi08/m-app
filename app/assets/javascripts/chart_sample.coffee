@@ -5,7 +5,7 @@ window.draw_graph = ->
         data: {
             labels: gon.user_name, #①ラベルをユーザーの名前にする
             datasets: [{
-                label: '# 平均ポイント',
+                label: '平均ポイント',
                 data: gon.user_point, #②データをユーザーのポイント平均点に変更する
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -32,9 +32,14 @@ window.draw_graph = ->
                     ticks: {
                         suggestedMax: 5,
                         suggestedMin: 1,
-                        beginAtZero:true
+                        beginAtZero:false
                     }
                 }]
             }
+            title: {                          
+                display: true,                
+                fontSize: 24,                  
+                text: '個人別 平均ポイント'               
+            },
         }
     })
