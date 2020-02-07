@@ -44,6 +44,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -75,5 +76,5 @@ gem 'mini_magick'
 gem 'rspec-rails'
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'pg'
 end
