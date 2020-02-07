@@ -1,37 +1,28 @@
 class MessagesController < ApplicationController
+  include PointHelper
+  include DateHelper
+  include MessagesHelper
+  
   before_action :set_group # 呼び出すことで、messageコントローラの全てのアクションで@groupを利用できるようになるよ
 
   def index
-    @progress = Date.today - @group.created_at.to_date
+    @progress, @group_limit = date_calc(@group.created_at)
 
     @message = Message.new
     @messages = @group.messages.includes(:user)
-    @event = @group.event
     @group_users = @group.users
 
-    gon.user_name = []
-    gon.user_point = []
-    @group_points = 0
-    total = 0
+    gon.user_name, gon.user_point = users_average(@group_users)
+    @group_average = group_average(gon.user_point)
 
-    @group_users.each do |group_user|
-      diaries = group_user.diaries.where("date >= ? and date <= ?", @group.created_at.to_date, @group.created_at.to_date + 7)
-      points = diaries.average(:point)
-      if points.present?
-        gon.user_point << points
-        gon.user_name << group_user.name
-        total += points
-      end
+    @event = @group.event
+    if @event.present?
+      @doc_pass, @pass_url = set_ogp(@event.pass_url) if @event.pass_url.present?
+      @doc_fail, @fail_url = set_ogp(@event.fail_url) if @event.fail_url.present?
+    else
+      @event = false
     end
-    @group_points = total / gon.user_name.length unless total == 0
   end
-
-
-  # def point
-  #   @diaries = Diary.where(user_id: @user.id)
-  #   gon.data = @diaries.average(:point).round(1)
-  # end
-
 
   def create
     @message = @group.messages.new(message_params)
