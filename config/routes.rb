@@ -4,13 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resources :diaries
   end
-  namespace :groups do
-    resources :searches, only: [:index] do
-      collection do
-        get 'search'
-      end
-    end
-  end
+
   resources :groups, except: [:index, :show] do
   member do
     post 'join'
@@ -21,4 +15,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :groups do
+    resources :searches, only: [:index] do
+      collection do
+        get 'search'
+      end
+    end
+  end
 end
