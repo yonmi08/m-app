@@ -61,7 +61,7 @@
             .my-main__left__diary__top__date
               %a= @day.date.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
-              %a= @day.point #その日の点数を表示する部分
+              %a= "#{@day.point} 点" #その日の点数を表示する部分
               -# .star-rating
               -#   = radio_button "point", 1, class: "star-rating"
               -#   %i

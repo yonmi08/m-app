@@ -32,7 +32,7 @@
         .my-body__box__label
           %a= "目標設定："
         .my-body__box__goal
-          = f.text_area :goal, class: 'user-goal', placeholder: '個人目標の入力'
+          = f.text_area :goal, class: 'user-goal', placeholder: '個人目標の入力', size: "30x20"
       .my-body__submit
         = f.submit '送信', class: 'user-btn'
 .sidebar-bg

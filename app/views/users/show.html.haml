@@ -43,12 +43,16 @@
             .my-main__left__diary__top__date
               %a= @day.date.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
-              %a= @day.point
+              %a= "#{@day.point} 点"
           .my-main__left__diary__text
             %a= simple_format(@day.text)
     .my-main__right
-      .my-main__right__top
-        %a= "平均点数：★★★"
+      - if @day.blank?
+        .my-main__right__top
+          %a= "平均点数：0"
+      -else
+        .my-main__right__top
+          %a= "平均点数：#{@user.point_average}"
       .my-main__right__bottom
         .my-main__right__bottom__calendar
           #calendar

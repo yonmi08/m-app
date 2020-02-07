@@ -1,6 +1,6 @@
 .main
   .main__header
-    - if @progress > @group_limit
+    - if @progress > @group_limit and @event
       - if @group.border <= @group_average
         .main__header__pass
           .event-title
@@ -16,7 +16,9 @@
     - else
       .main__header__bar
         .main__header__bar__title
-          = "現在の平均ポイントは#{@group_average}点です！"
+          = "現在の平均ポイントは"
+          %span= @group_average
+          = "点です！"
         .main__header__bar__text
           - if @progress == @group_limit
             %p= "本日最終日！頑張りましょう！"

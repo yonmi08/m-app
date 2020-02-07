@@ -26,10 +26,6 @@
       font-weight: bold;
       font-size: 20px;
     }
-    &__average {
-      padding-right: 15px;
-      text-align: right;
-    } 
   }
 
   &__body {
@@ -126,23 +122,26 @@
 .side__header > aside ul {
   margin: 0;
   padding: 0;
-  top: 50px;
+  top: 30px;
   right: 114px;
   position: absolute;
 }
 
 .side__header > aside li {
-  margin: 0 0 20px;
+  padding: 0 0 30px;
 }
 
 .side__header__aside__menu {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  p {
+    text-align: center;
+  }
 }
 
 .side__header__aside__menu__name {
-  margin: 0 0 20px;
+  padding: 0 0 30px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
@@ -177,7 +176,6 @@
 }
 
 .side__header__aside__menu__join {
-  margin: 0 0 20px;
   font-size: 20px;
   a {
     color: white;
@@ -280,6 +278,11 @@
       }
       &__text {
         font-size: 20px;
+      }
+      span {
+        font-weight: bold;
+        font-size: 40px;
+        color: #c5510d;
       }
     }
     a {
@@ -436,4 +439,3 @@
 .clearfix:after {
     clear: both;
 }
-
