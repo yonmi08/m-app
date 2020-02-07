@@ -1,7 +1,7 @@
 .main
   .main__header
-    - if @progress > 7
-      - if @group.border <= @group_points
+    - if @progress > @group_limit
+      - if @group.border <= @group_average
         .main__header__pass
           .event-title
             %p= "目標達成おめでとう！！"
@@ -16,16 +16,16 @@
     - else
       .main__header__bar
         .main__header__bar__title
-          = "現在の平均ポイントは#{@group_points.round(1)}点です！"
+          = "現在の平均ポイントは#{@group_average}点です！"
         .main__header__bar__text
-          - if @progress == 7
+          - if @progress == @group_limit
             %p= "本日最終日！頑張りましょう！"
           - else
-            %p= "残り#{7 - @progress.to_i}日！頑張りましょう！"
+            %p= "残り#{@group_limit - @progress.to_i}日！頑張りましょう！"
     %ul.main__header__menu
-      %i= icon('fa', 'bars',  class: "header__menu__icon")
+      %i= icon('fa', 'bars', class: "header__menu__icon")
       %li.main__header__menu__join
-        - if current_user.groups.blank? and @group.users.size < 5
+        - if current_user.groups.blank? and @group.users.size < 5 and @group.flag != 1
           = link_to(join_group_path(@group.id), method: :post) do
             = "グループ加入"
       %li.main__header__menu__name
@@ -35,34 +35,67 @@
         = link_to(destroy_user_session_path, method: :delete) do
           = "ログアウト"
   .main__body
+    - if @group.flag == 1
+      .main__body__middle
+        - if @group.border <= @group_average
+          - if @event.pass_url.present?
+            .main__body__middle__event
+              .main__body__middle__event__pass
+                = "【目標 達成イベント】"
+              = link_to(@pass_url) do
+                .ogp
+                  = image_tag tumbnaill_image(@doc_pass), class: "ogp__img"
+                  .ogp__bottom
+                    .ogp__bottom__title
+                      = tumbnaill_title(@doc_pass).truncate(22, omission: '…')
+                    .ogp__bottom__content
+                      = tumbnaill_content(@doc_pass).truncate(140, omission: '…')
+        - else
+          - if @event.fail_url.present?
+            .main__body__middle__event
+              .main__body__middle__event__fail
+                = "【目標 未達成イベント】"
+              = link_to(@fail_url) do
+                .ogp
+                  = image_tag tumbnaill_image(@doc_fail), class: "ogp__img"
+                  .ogp__bottom
+                    .ogp__bottom__title
+                      = tumbnaill_title(@doc_fail).truncate(22, omission: '…')
+                    .ogp__bottom__content
+                      = tumbnaill_content(@doc_fail).truncate(140, omission: '…')
     .main__body__top
       <canvas id="myChart" width="200" height=90"></canvas>
       <script>draw_graph();</script>
-    .main__body__middle
-      .main__body__middle__event
-        .main__body__middle__event__pass
-          = "【目標 達成イベント】"
-        = link_to(@group.event.pass_url) do
-          .ogp
-            = image_tag tumbnaill_image(@group.event.pass_url), class: "ogp__img"
-            .ogp__bottom
-              .ogp__bottom__title
-                = tumbnaill_title(@group.event.pass_url).truncate(22, omission: '…')
-              .ogp__bottom__content
-                = tumbnaill_content(@group.event.pass_url).truncate(140, omission: '…')
-      .main__body__middle__event
-        .main__body__middle__event__fail
-          = "【目標 未達成イベント】"
-        = link_to(@group.event.fail_url) do
-          .ogp
-            = image_tag tumbnaill_image(@group.event.fail_url), class: "ogp__img"
-            .ogp__bottom
-              .ogp__bottom__title
-                = tumbnaill_title(@group.event.fail_url).truncate(22, omission: '…')
-              .ogp__bottom__content
-                = tumbnaill_content(@group.event.fail_url)#.truncate(40, omission: '…')
+    - if @group.flag != 1
+      - if @event
+        .main__body__middle
+          - if @event.pass_url.present?
+            .main__body__middle__event
+              .main__body__middle__event__pass
+                = "【目標 達成イベント】"
+              = link_to(@pass_url) do
+                .ogp
+                  = image_tag tumbnaill_image(@doc_pass), class: "ogp__img"
+                  .ogp__bottom
+                    .ogp__bottom__title
+                      = tumbnaill_title(@doc_pass).truncate(22, omission: '…')
+                    .ogp__bottom__content
+                      = tumbnaill_content(@doc_pass).truncate(140, omission: '…')
+          - if @event.fail_url.present?
+            .main__body__middle__event
+              .main__body__middle__event__fail
+                = "【目標 未達成イベント】"
+              = link_to(@fail_url) do
+                .ogp
+                  = image_tag tumbnaill_image(@doc_fail), class: "ogp__img"
+                  .ogp__bottom
+                    .ogp__bottom__title
+                      = tumbnaill_title(@doc_fail).truncate(22, omission: '…')
+                    .ogp__bottom__content
+                      = tumbnaill_content(@doc_fail).truncate(140, omission: '…')
     %ul.main__body__bottom
-      = "グループメンバー"
+      .main__body__bottom__title
+        = "Group Member"
       - @group_users.each do |user|
         = link_to(user_path(user.id)) do
           %li

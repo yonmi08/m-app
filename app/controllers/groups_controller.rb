@@ -18,10 +18,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
 
   def update
     if @group.update(group_params)
-      redirect_to root_path
+      redirect_to group_messages_path(@group.id)
     else
       render :edit
     end
@@ -29,14 +32,13 @@ class GroupsController < ApplicationController
 
   def join
     @group.users << current_user
-    @group.flag = 1 unless @group.flag == 1
     @group.save
     redirect_to group_messages_path(@group.id)
   end
 
   private
   def group_params
-    params.require(:group).permit(:name, :genre, :border, :flag, user_ids: [],
+    params.require(:group).permit(:name, :genre, :border, :flag,
       event_attributes: [:id, :pass_text, :pass_url, :fail_text, :fail_url, :group_id]
     )
   end
