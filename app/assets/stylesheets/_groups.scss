@@ -113,12 +113,13 @@
   right: -70px;
 }
 
+
 .side__header > aside {
     background-color: rgba(0,0,0,0.8);
-    width: 320px;
+    width: 390px;
     height: 100%;
     top: 0;
-    right: -320px;
+    right: -390px;
     position: fixed;
 }
 
@@ -134,21 +135,73 @@
   margin: 0 0 20px;
 }
 
-// .side__header__aside__log-out {
-//   margin: 0 0 20px;
-// }
+.side__header__aside__menu {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.side__header__aside__menu__name {
+  margin: 0 0 20px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  .fab {
+    font-size: 180px;
+  }
+}
+
+.side__header__aside__log-out {
+  margin: 0 0 20px;
+  font-size: 20px;
+  a {
+    color: white;
+    font-size: 20px;
+  }
+}
+
+.log_out {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.fas {
+  font-size: 180px;
+  color: white;
+}
+
+.side__header__aside__menu__join {
+  margin: 0 0 20px;
+  font-size: 20px;
+  a {
+    color: white;
+    font-size: 14px;
+  }
+}
+
+.group_add {
+  color: white;
+}
+
 
 .side__header > aside button {
   background-color: rgba(0,0,0,0.8);
   display: block;
   position: absolute;
   top: 150px;
-  right: 320px;
+  right: 390px;
   width: 52px;
   height: 132px;
   margin: 0;
   padding: 0;
   border: none;
+  outline: 0;
 }
 
 
@@ -219,18 +272,6 @@
       right: 20px;
       font-size: 22px;
       color: #fff;
-      &:hover {
-        background-color: #df7c9e;
-      }
-      &__join {
-        // display: none;
-      }
-      &__name {
-        // display: none;
-      }
-      &__log-out {
-        // display: none;
-      }
     }
   }
 
