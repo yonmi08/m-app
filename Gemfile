@@ -75,5 +75,5 @@ gem 'mini_magick'
 gem 'rspec-rails'
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'pg'
 end
