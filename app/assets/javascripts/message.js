@@ -44,34 +44,34 @@ $(function(){
   })
 
   /*自動更新*/
-  var reloadMessages = function() {
-    last_message_id = $('.message:last').data("message-id");
-    console.log(last_message_id);
-    $.ajax({
-      url: "api/messages",
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      if (messages.length !== 0) {
-      var insertHTML = '';
-      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-      $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message)
-      });
-      $('.side__body__message').append(insertHTML);
-      $('.side__body__message').animate({scrollTop: $('.side__body__message')[0].scrollHeight});
-      $('form')[0].reset();
-      $('.submit-btn').prop('disabled', false);
-    }
-    })
-    .fail(function() {
-      alert('メッセージの送信に失敗しました');
-    });
-  };
-  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-    setInterval(reloadMessages, 7000);
-  }
+  // var reloadMessages = function() {
+  //   last_message_id = $('.message:last').data("message-id");
+  //   console.log(last_message_id);
+  //   $.ajax({
+  //     url: "api/messages",
+  //     type: 'get',
+  //     dataType: 'json',
+  //     data: {id: last_message_id}
+  //   })
+  //   .done(function(messages) {
+  //     if (messages.length !== 0) {
+  //     var insertHTML = '';
+  //     //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+  //     $.each(messages, function(i, message) {
+  //       insertHTML += buildHTML(message)
+  //     });
+  //     $('.side__body__message').append(insertHTML);
+  //     $('.side__body__message').animate({scrollTop: $('.side__body__message')[0].scrollHeight});
+  //     $('form')[0].reset();
+  //     $('.submit-btn').prop('disabled', false);
+  //   }
+  //   })
+  //   .fail(function() {
+  //     alert('メッセージの送信に失敗しました');
+  //   });
+  // };
+  // if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+  //   setInterval(reloadMessages, 7000);
+  // }
 }); 
 
