@@ -1,7 +1,4 @@
 $(function(){
-  // last_message_id = $('.message:last').data("message-id");
-  // console.log(last_message_id);
-  
   function buildHTML(message) {
     var html =  `<div class="message" message-id="${message.id}">
                   <div class="message__top">
@@ -20,7 +17,6 @@ $(function(){
   };
   $('#new_message').on('submit', function(e){
     e.preventDefault();
-    console.log(this)
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({

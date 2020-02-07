@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   end
 
   resources :groups, except: [:index, :show] do
-  member do
-    post 'join'
-  end
+    member do
+      post 'join'
+    end
     resources :messages, only: [:index, :create]
     namespace :api do
       resources :messages, only: :index, defaults: { format: 'json' }
