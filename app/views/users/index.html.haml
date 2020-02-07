@@ -62,17 +62,17 @@
               %a= @day.date.strftime("%Y年%m月%d日")
             .my-main__left__diary__top__point
               %a= @day.point #その日の点数を表示する部分
-              .star-rating
-                = radio_button "point", 1, class: "star-rating"
-                %i
-                = radio_button "point", 2, class: "star-rating"
-                %i
-                = radio_button "point", 3, class: "star-rating"
-                %i
-                = radio_button "point", 4, class: "star-rating"
-                %i
-                = radio_button "point", 5, class: "star-rating"
-                %i
+              -# .star-rating
+              -#   = radio_button "point", 1, class: "star-rating"
+              -#   %i
+              -#   = radio_button "point", 2, class: "star-rating"
+              -#   %i
+              -#   = radio_button "point", 3, class: "star-rating"
+              -#   %i
+              -#   = radio_button "point", 4, class: "star-rating"
+              -#   %i
+              -#   = radio_button "point", 5, class: "star-rating"
+              -#   %i
 
           .my-main__left__diary__text
             %a= simple_format(@day.text)

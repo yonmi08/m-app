@@ -22,18 +22,6 @@
             %p= "本日最終日！頑張りましょう！"
           - else
             %p= "残り#{@group_limit - @progress.to_i}日！頑張りましょう！"
-    %ul.main__header__menu
-      %i= icon('fa', 'bars', class: "header__menu__icon")
-      %li.main__header__menu__join
-        - if current_user.groups.blank? and @group.users.size < 5 and @group.flag != 1
-          = link_to(join_group_path(@group.id), method: :post) do
-            = "グループ加入"
-      %li.main__header__menu__name
-        = link_to(root_path(current_user.id)) do
-          = current_user.name
-      %li.main__header__menu__log-out
-        = link_to(destroy_user_session_path, method: :delete) do
-          = "ログアウト"
   .main__body
     - if @group.flag == 1
       .main__body__middle
