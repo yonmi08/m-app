@@ -4,12 +4,12 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.users << current_user
     @group.build_event
   end
 
   def create
     @group = Group.create(group_params)
+    @group.users << current_user
     if @group.save 
       flash[:success] = "Welcome to the Sample App!"
       redirect_to root_path

@@ -1,6 +1,6 @@
 .main
   .main__header
-    - if @progress > @group_limit
+    - if @progress > @group_limit and @event
       - if @group.border <= @group_average
         .main__header__pass
           .event-title
@@ -15,13 +15,21 @@
             %p= simple_format @group.event.fail_text
     - else
       .main__header__bar
-        .main__header__bar__title
-          = "現在の平均ポイントは#{@group_average}点です！"
-        .main__header__bar__text
+        %p.main__header__bar__title
+          = "現在の平均ポイントは、"
+          %span= "#{@group_average}点"
+          = "です！"
+        %p.main__header__bar__text
           - if @progress == @group_limit
-            %p= "本日最終日！頑張りましょう！"
+            = "目標平均との差は"
+            %span= "#{(@group_average - @group.border).round(1)}点！ "
+            = "本日最終日！頑張りましょう！"
           - else
-            %p= "残り#{@group_limit - @progress.to_i}日！頑張りましょう！"
+            = "目標平均との差は、"
+            %span= "#{(@group_average - @group.border).round(1)}点！ "
+            = "残り"
+            %a= "#{@group_limit - @progress.to_i}日！ "
+            = "頑張りましょう！"
   .main__body
     - if @group.flag == 1
       .main__body__middle
@@ -35,7 +43,7 @@
                   = image_tag tumbnaill_image(@doc_pass), class: "ogp__img"
                   .ogp__bottom
                     .ogp__bottom__title
-                      = tumbnaill_title(@doc_pass).truncate(22, omission: '…')
+                      = tumbnaill_title(@doc_pass).truncate(18, omission: '…')
                     .ogp__bottom__content
                       = tumbnaill_content(@doc_pass).truncate(140, omission: '…')
         - else
@@ -48,7 +56,7 @@
                   = image_tag tumbnaill_image(@doc_fail), class: "ogp__img"
                   .ogp__bottom
                     .ogp__bottom__title
-                      = tumbnaill_title(@doc_fail).truncate(22, omission: '…')
+                      = tumbnaill_title(@doc_fail).truncate(18, omission: '…')
                     .ogp__bottom__content
                       = tumbnaill_content(@doc_fail).truncate(140, omission: '…')
     .main__body__top
@@ -66,7 +74,7 @@
                   = image_tag tumbnaill_image(@doc_pass), class: "ogp__img"
                   .ogp__bottom
                     .ogp__bottom__title
-                      = tumbnaill_title(@doc_pass).truncate(22, omission: '…')
+                      = tumbnaill_title(@doc_pass).truncate(18, omission: '…')
                     .ogp__bottom__content
                       = tumbnaill_content(@doc_pass).truncate(140, omission: '…')
           - if @event.fail_url.present?
@@ -78,7 +86,7 @@
                   = image_tag tumbnaill_image(@doc_fail), class: "ogp__img"
                   .ogp__bottom
                     .ogp__bottom__title
-                      = tumbnaill_title(@doc_fail).truncate(22, omission: '…')
+                      = tumbnaill_title(@doc_fail).truncate(18, omission: '…')
                     .ogp__bottom__content
                       = tumbnaill_content(@doc_fail).truncate(140, omission: '…')
     %ul.main__body__bottom

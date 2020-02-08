@@ -14,6 +14,14 @@ class Group < ApplicationRecord
 
   def self.search(keyword, genre)
     return Group.all unless keyword && genre
-    Group.where("genre = ? and name LIKE(?)", genre, "%#{keyword}%")
+    if genre != "" && keyword != ""
+      Group.where("genre = ? and name LIKE(?)", genre, "%#{keyword}%")
+    elsif genre == "" && keyword != ""
+      Group.where("name LIKE(?)", "%#{keyword}%")
+    elsif genre != "" && keyword == ""
+      Group.where("genre = ?", genre)
+    else
+      Group.all
+    end
   end
 end

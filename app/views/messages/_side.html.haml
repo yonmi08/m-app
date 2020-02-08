@@ -10,7 +10,7 @@
         %li.side__header__aside__menu__name
           = link_to(root_path(current_user.id)) do
             %p= icon('fab', 'optin-monster', class: "monster-2")
-            %p= current_user.name
+            %p= "マイページ"
         %li.side__header__aside__menu__log-out
           = link_to(destroy_user_session_path, method: :delete, class: "log_out") do
             %p= icon('fas', 'pastafarianism', class: "monster-3")
@@ -20,8 +20,10 @@
   .side__group
     .side__group__name
       = @group.name
-    .side__group__average
-      = "平均点: #{@group_average.round(1)}"
+    .side__group__border
+      = "目標平均点："
+      %span= @group.border
+      = "点以上"
   .side__body
     .side__body__message
       = render @messages
