@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
     @group_users = @group.users
 
     gon.user_name, gon.user_point = users_average(@group_users)
-    @group_average = group_average(gon.user_point)
+    @group_average = group_average(gon.user_point).round(1)
 
     @event = @group.event
     if @event.present?

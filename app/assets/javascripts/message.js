@@ -36,6 +36,7 @@ $(function(){
     })
     .fail(function(){
       alert('error');
+      $('.submit-btn').prop('disabled', false);
     })
   })
 
@@ -50,16 +51,16 @@ $(function(){
     })
     .done(function(messages) {
       if (messages.length !== 0) {
-      var insertHTML = '';
-      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-      $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message)
-      });
-      $('.side__body__message').append(insertHTML);
-      $('.side__body__message').animate({scrollTop: $('.side__body__message')[0].scrollHeight});
-      $('form')[0].reset();
-      $('.submit-btn').prop('disabled', false);
-    }
+        var insertHTML = '';
+        //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.side__body__message').append(insertHTML);
+        $('.side__body__message').animate({scrollTop: $('.side__body__message')[0].scrollHeight});
+        $('form')[0].reset();
+        $('.submit-btn').prop('disabled', false);
+      }
     })
     .fail(function() {
       alert('メッセージの送信に失敗しました');
