@@ -32,7 +32,7 @@ module MessagesHelper
       begin
         doc.css('//meta[property="og:title"]/@content').to_s
       rescue
-        doc.css('//title').inner_text rescue title = 'リンク先へ'
+        doc.css('//title').inner_text rescue title = 'URLの読み込みエラー'
       end
     end
   end
@@ -42,7 +42,9 @@ module MessagesHelper
       doc.css('//meta[property="og:description"]/@content').to_s
     rescue
       begin
-        doc.css('//meta[name="description"]/@content').to_s rescue "サイト情報を読み込めませんでした。"
+        doc.css('//meta[name="description"]/@content').to_s
+      rescue
+        "入力されたURL先の情報が読み込めませんでした。再度正しいURLを入力するか、違うURLの入力をお願いします。"
       end
     end
   end
