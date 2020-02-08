@@ -21,10 +21,18 @@
     height: 70px;
     padding: 7px 0;
     border-bottom: 1px solid #e6b8c8;
-    font-weight: bold;
     &__name {
       font-weight: bold;
       font-size: 20px;
+    }
+    &__border {
+      font-size: 14px;
+      text-align: right;
+    } 
+    span {
+      color: #e23270;
+      font-weight: bold;
+      font-size: 18px;
     }
   }
 

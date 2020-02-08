@@ -5,7 +5,7 @@
   color: $bw3;
   &__top {
     border: $bw3;
-    padding: 0 40px;
+    padding: 0 110px;
     align-items: flex-end;
     height: 15%;
     width: 100%;
@@ -16,7 +16,7 @@
       padding-top: 10px;
       #diary_date_1i {
         height: 40px;
-        width: 70px;
+        width: 90px;
         background-color: $wh1;
         outline: 0;
         color: $bw3;
@@ -141,7 +141,7 @@
       height: calc(100% - 100px);
       width: 100%;
       padding-bottom: 15px;
-      font-size: 20px;
+      font-size: 28px;
       .diary-text {
         background-color: $wh1;
         border-radius: 5px;
@@ -200,7 +200,7 @@
       height: calc(100% - 100px);
       width: 100%;
       padding: 7px 12px;
-      font-size: 20px;
+      font-size: 28px;
       background-color: #fffff6;
       border-radius: 5px;
       border: $bw3 1px solid;
