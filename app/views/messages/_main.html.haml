@@ -17,17 +17,19 @@
       .main__header__bar
         %p.main__header__bar__title
           = "現在の平均ポイントは、"
-          %span= @group_average
-          = "点です！"
+          %span= "#{@group_average}点"
+          = "です！"
         %p.main__header__bar__text
           - if @progress == @group_limit
             = "目標平均との差は"
-            %span= "#{(@group_average - @group.border).round(1)}"
-            = "点！ 本日最終日！頑張りましょう！"
+            %span= "#{(@group_average - @group.border).round(1)}点！ "
+            = "本日最終日！頑張りましょう！"
           - else
             = "目標平均との差は、"
-            %span= "#{(@group_average - @group.border).round(1)}"
-            = "点！ 残り#{@group_limit - @progress.to_i}日！頑張りましょう！"
+            %span= "#{(@group_average - @group.border).round(1)}点！ "
+            = "残り"
+            %a= "#{@group_limit - @progress.to_i}日！ "
+            = "頑張りましょう！"
   .main__body
     - if @group.flag == 1
       .main__body__middle

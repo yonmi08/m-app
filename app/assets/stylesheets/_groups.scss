@@ -291,19 +291,22 @@
       &__text {
         font-size: 20px;
         span {
-          font-weight: bold;
           font-size: 30px;
-          color: #c5850d;
+          color: #3cbb15;
+        }
+        a {
+          font-size: 30px;
+          color: #233dcc;
         }
       }
 
     }
-    a {
-      text-decoration: none;
-      color: #4d3c42;
-      font-size: 18px;
-      font-weight: bold;
-    }
+    // a {
+    //   text-decoration: none;
+    //   color: #4d3c42;
+    //   font-size: 18px;
+    //   font-weight: bold;
+    // }
     &__menu {
       background-color: $pk1;
       text-align: center;
